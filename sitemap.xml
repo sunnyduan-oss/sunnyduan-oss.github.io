@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://dusign.net/about/index.html</loc>
+    
+    <lastmod>2024-11-02T07:54:40.866Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://dusign.net/tags/index.html</loc>
     
     <lastmod>2024-11-01T10:17:31.074Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://dusign.net/categories/index.html</loc>
     
     <lastmod>2024-11-01T10:17:30.893Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://dusign.net/about/index.html</loc>
-    
-    <lastmod>2024-11-01T10:17:30.892Z</lastmod>
     
   </url>
   
