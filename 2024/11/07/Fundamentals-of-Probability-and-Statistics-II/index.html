@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
                 /*post*/
             
         
@@ -112,9 +112,15 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#数学基础" title="数学基础">数学基础</a>
+                            
+                              <a class="tag" href="/tags/#HKU ARIN7001" title="HKU ARIN7001">HKU ARIN7001</a>
+                            
+                              <a class="tag" href="/tags/#HKU ARIN7101" title="HKU ARIN7101">HKU ARIN7101</a>
+                            
                         </div>
                         <h1>Fundamentals of Probability and Statistics II</h1>
-                        <h2 class="subheading"></h2>
+                        <h2 class="subheading">一些关于概率和统计的基础知识。</h2>
                         <span class="meta">
                             Posted by Sunny on
                             2024-11-07
@@ -123,7 +129,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">58</span> and
+                                Words <span class="post-count">242</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -270,18 +276,34 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h3 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h3><p>Random Variable: 随机变量本质上是一个函数，这个函数将样本空间的每个基本事件映射成为一个实数。</p>
+        <h1 id="Fundamentals-of-Probability-and-Statistics-II"><a href="#Fundamentals-of-Probability-and-Statistics-II" class="headerlink" title="Fundamentals of Probability and Statistics II"></a>Fundamentals of Probability and Statistics II</h1><h1 id="随机变量"><a href="#随机变量" class="headerlink" title="随机变量"></a>随机变量</h1><p>Random Variable: 随机变量本质上是一个函数，这个函数将样本空间的每个基本事件映射成为一个实数。</p>
 <p>有三种随机变量：</p>
 <ul>
-<li>Propositional or Boolean</li>
-<li>Discrete</li>
+<li>Discrete(包含两个特殊类型Propositional or Boolean)</li>
 <li>Continuous</li>
+<li>mixed</li>
 </ul>
-<h2 id="概率分布"><a href="#概率分布" class="headerlink" title="概率分布"></a>概率分布</h2>
+<p>我们通常使用大写字母(例如$X,Y$)表示随机变量，小写字母(例如$x,y$)表示随机变量的取值。例如，$X=x$中$X$是随机变量，$x$是随机变量可能取到的某个值。</p>
+<p>随机变量根据类别展开会涉及到几个部分：</p>
+<ul>
+<li>probability mass function(pmf) / probability density function(pdf)：前者针对离散型随机变量，后者针对连续型随机变量。</li>
+<li>cumulative distribution function：也称为分布函数。</li>
+</ul>
+<h2 id="离散-Discrete-随机变量"><a href="#离散-Discrete-随机变量" class="headerlink" title="离散(Discrete)随机变量"></a>离散(Discrete)随机变量</h2><h1 id="概率分布"><a href="#概率分布" class="headerlink" title="概率分布"></a>概率分布</h1><h2 id="联合概率分布-Joint-Probability-Distribution"><a href="#联合概率分布-Joint-Probability-Distribution" class="headerlink" title="联合概率分布(Joint Probability Distribution)"></a>联合概率分布(Joint Probability Distribution)</h2><h2 id="边缘概率分布-Marginal-Probability-Distribution"><a href="#边缘概率分布-Marginal-Probability-Distribution" class="headerlink" title="边缘概率分布(Marginal Probability Distribution)"></a>边缘概率分布(Marginal Probability Distribution)</h2><h2 id="条件概率分布-Conditional-Probability-Distribution"><a href="#条件概率分布-Conditional-Probability-Distribution" class="headerlink" title="条件概率分布(Conditional Probability Distribution)"></a>条件概率分布(Conditional Probability Distribution)</h2><h2 id="随机变量独立性在概率分布中的体现"><a href="#随机变量独立性在概率分布中的体现" class="headerlink" title="随机变量独立性在概率分布中的体现"></a>随机变量独立性在概率分布中的体现</h2>
 
         <hr />
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a
+              href="/2024/11/07/Behavior-Questions/"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Behavior Questions"
+              >&larr; Previous Post</a
+            >
+          </li>
            
           <li class="next">
             <a
@@ -339,6 +361,21 @@
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Fundamentals-of-Probability-and-Statistics-II"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Fundamentals of Probability and Statistics II</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#随机变量"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">随机变量</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#离散-Discrete-随机变量"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">离散(Discrete)随机变量</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#概率分布"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">概率分布</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#联合概率分布-Joint-Probability-Distribution"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">联合概率分布(Joint Probability Distribution)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#边缘概率分布-Marginal-Probability-Distribution"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">边缘概率分布(Marginal Probability Distribution)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#条件概率分布-Conditional-Probability-Distribution"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">条件概率分布(Conditional Probability Distribution)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#随机变量独立性在概率分布中的体现"><span class="toc-nav-number">3.4.</span> <span class="toc-nav-text">随机变量独立性在概率分布中的体现</span></a></li></ol></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
 
       <!-- Sidebar Container -->
       <div
@@ -350,6 +387,27 @@
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
+            
+            <a
+              class="tag"
+              href="/tags/#数学基础"
+              title="数学基础"
+              >数学基础</a
+            >
+            
+            <a
+              class="tag"
+              href="/tags/#HKU ARIN7001"
+              title="HKU ARIN7001"
+              >HKU ARIN7001</a
+            >
+            
+            <a
+              class="tag"
+              href="/tags/#HKU ARIN7101"
+              title="HKU ARIN7101"
+              >HKU ARIN7101</a
+            >
             
           </div>
         </section>
