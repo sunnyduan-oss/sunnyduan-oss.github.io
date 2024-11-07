@@ -26,7 +26,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
   <title>
-     Fundamentals of Probability and Statistics - Sunny 
+     Fundamentals of Probability and Statistics I - Sunny 
   </title>
 
   <link
@@ -117,7 +117,7 @@
                               <a class="tag" href="/tags/#HKU ARIN7001" title="HKU ARIN7001">HKU ARIN7001</a>
                             
                         </div>
-                        <h1>Fundamentals of Probability and Statistics</h1>
+                        <h1>Fundamentals of Probability and Statistics I</h1>
                         <h2 class="subheading">一些关于概率和统计的基础知识。</h2>
                         <span class="meta">
                             Posted by Sunny on
@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">233</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">1.1k</span> and
+                                Reading Time <span class="post-count">5</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -274,10 +274,43 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h1 id="Fundamentals-of-Probability-and-Statistics"><a href="#Fundamentals-of-Probability-and-Statistics" class="headerlink" title="Fundamentals of Probability and Statistics"></a>Fundamentals of Probability and Statistics</h1><p>本篇文章的目的是整理在<strong>HKU AI program里面ARIN7001课程的part II</strong>，以及对<strong>考研数学概率论</strong>部分基础知识的一些整理。由于HKU课程是全英文教学的，所以我的文章有关知识部分基本上是双语的。</p>
+        <h1 id="Fundamentals-of-Probability-and-Statistics-I"><a href="#Fundamentals-of-Probability-and-Statistics-I" class="headerlink" title="Fundamentals of Probability and Statistics I"></a>Fundamentals of Probability and Statistics I</h1><p>本篇文章的目的是整理在<strong>HKU AI program里面ARIN7001课程的part II</strong>，以及对<strong>考研数学概率论</strong>部分基础知识的一些整理。由于HKU课程是全英文教学的，所以我的文章有关知识部分基本上是双语的。</p>
 <p>概率和统计实际上是两个不同的概念。概率是预测<strong>未来事件</strong>发生的可能性；统计包含了对<strong>过去事件</strong>频率的分析，从数据出发，研究已发生事件的属性和规律。这就回答了我很早以前困惑的问题，考研的概率论更多的是频率预测概率的内容，statistics一上来就是贝叶斯。当然，概率和统计是有一部分相同的基础知识部分，每门课都讲了一遍。</p>
 <p>Probability: predict the likelihood of the future events. \<br>Statistics: analyze the frequency of past events.</p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>sample space: </p>
+<h2 id="Sets-and-Events"><a href="#Sets-and-Events" class="headerlink" title="Sets and Events"></a>Sets and Events</h2><p><strong>Sample Space</strong>: 样本空间，通常用$\Omega$表示。随机试验中的每一个可能的结果（强调原子性，即不可再分）称为样本点，记为$\omega$。样本点的全体组成的集合称为样本空间。$\Omega = { \omega }$。</p>
+<p><strong>Atomic Event</strong>: 由一个样本点构成的事件称为基本事件。</p>
+<p><strong>Event</strong>: 随机事件A是由若干个基本事件组成，A是$\Omega$的子集。</p>
+<p>Union: 并集。</p>
+<p>Intersection: 交集。</p>
+<p>Disjoint(mutually exclusive): 中文翻译为不相交，互斥。即$E_i \cap E_j = \emptyset$</p>
+<p>Partition: 完备事件组。有限个事件${E_1, E_2,…,E_n}$满足互斥和$E_1 \cup E_2 \cup … \cup E_n = \Omega$，则称构成一个完备事件组。</p>
+<h2 id="概率"><a href="#概率" class="headerlink" title="概率"></a>概率</h2><p>概率是对随机事件A发生可能性大小的度量，记为$P(A)$。</p>
+<ul>
+<li>对于一个随机事件$A \subset \Omega$, $P(A) \in [0,1]$</li>
+<li>$P(\emptyset) = 0$, $P(\Omega)=1$.</li>
+<li>$P(A) + P(A^c) = 1$.</li>
+<li>对于互斥事件(mutually exclusive) $E<em>1, E_2,…, E_n$，<br>$P(U^n</em>{i=1} E<em>i) = \sum^n</em>{i=1} P(E_i)$.</li>
+<li>对于完备事件组(partition) $E<em>1, E_2,…, E_n$，$P(\cup^n</em>{i=1} E_i) = P(\Omega) = 1$.</li>
+</ul>
+<h2 id="常见概率公式"><a href="#常见概率公式" class="headerlink" title="常见概率公式"></a>常见概率公式</h2><h3 id="加法公式"><a href="#加法公式" class="headerlink" title="加法公式"></a>加法公式</h3><p>对于两个任意事件$E_1$和$E_2$，有<br>$P(E_1\cup E_2) = P(E_1) + P(E_2) - P(E_1 \cap E_2)$.</p>
+<p>对于三个任意事件$E_1$, $E_2$和$E_3$，有</p>
+<p>$P(E_1\cup E_2\cup E_3) = P(E_1) + P(E_2) + P(E_3) - P(E_1 \cap E_2) - P(E_1 \cap E_3) - P(E_2 \cap E_3) + P(E_1\cap E_2 \cap E_3)$.</p>
+<h3 id="减法公式"><a href="#减法公式" class="headerlink" title="减法公式"></a>减法公式</h3><p>$P(A-B) = P(A) - P(AB) = P(A\overline{B})$</p>
+<h3 id="条件-Conditional-概率公式"><a href="#条件-Conditional-概率公式" class="headerlink" title="条件(Conditional)概率公式"></a>条件(Conditional)概率公式</h3><p>The conditional probability of event A given the occurance of event B (denoted by $P(A|B)$) is calculated as :</p>
+<script type="math/tex; mode=display">P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{if } P(B) > 0.</script><p><strong>如何理解条件概率$P(·|A)$中的条件事件$A$？</strong></p>
+<p>只针对$·$做概率计算，每个概率都带着$|A$即可。</p>
+<p>例如：$P(\overline{B}|A)=P(B \cup \overline{B}|A) - P(B|A)=1-P(B|A)$, $P[(B-C|A)]=P(B|A)-P(BC|A)$.</p>
+<h3 id="贝叶斯-Bayes-公式"><a href="#贝叶斯-Bayes-公式" class="headerlink" title="贝叶斯(Bayes)公式"></a>贝叶斯(Bayes)公式</h3><p>For two events $A$ and $B$ in the sample space $\Omega$, the conditional probability of A given B is:</p>
+<script type="math/tex; mode=display">P(A|B)=\frac{P(AB)}{P(B)}=\frac{P(B|A)P(A)}{P(B)},</script><p>where $P(B) \neq 0$.</p>
+<p>Moreover, if ${A_1, A_2,…, A_m}$ is a partition of $\Omega$, for each $i = 1,2,…,m$, we have:</p>
+<script type="math/tex; mode=display">P(A_i|B)=\frac{P(A_i\cap B)}{P(B)}=\frac{P(B|A_i)P(A_i)}{\sum^m_{j=1} P(B|A_j)P(A_j)},</script><p>贝叶斯公式的本质是条件概率，描述一件基于与之相关的先验（prior）知识条件的事件的概率。</p>
+<h3 id="全概率公式"><a href="#全概率公式" class="headerlink" title="全概率公式"></a>全概率公式</h3><p>if ${A_1, A_2,…, A_m}$ is a partition of $\Omega$, for any event B, we have:</p>
+<script type="math/tex; mode=display">B=\cup^m_{i=1}A_iB, P(B)=\sum^n_{i=1} P(A_i)P(B|A_i)</script><h3 id="乘法概率公式-Joint-Probability"><a href="#乘法概率公式-Joint-Probability" class="headerlink" title="乘法概率公式(Joint Probability)"></a>乘法概率公式(Joint Probability)</h3><p>For two events A and B ($P(A)&gt;0$), we have $P(AB)=P(A)P(B|A)$.</p>
+<p>For events $B_1,B_2,…,B_n$, we have:</p>
+<script type="math/tex; mode=display">P(\cap^n_{i=1} B_n)=P(B_1)P(B_2|B_1)P(B_3|B_1\cap B_2)···P(B_n|\cap^n_{i=1} B_{n-1}).</script><h2 id="独立事件"><a href="#独立事件" class="headerlink" title="独立事件"></a>独立事件</h2><p>Two events A and B are <strong>independent</strong> (denoted by A $\perp$ B), if the occurance of B does not affect the probability of occurance of A, i.e., $P(A|B)=P(A)$.</p>
+<script type="math/tex; mode=display">P(AB)=P(B)P(A|B)=P(B)P(A)</script><p><strong>Pairwise Independent（两两互斥）</strong>: A finite set of events ${A<em>i}^n</em>{i=1}$ is pairwise independent if and only if for any pairs $i \neq j$, $P(A_i \cap  A_j)=P(A_i)P(A_j)$.</p>
+<p><strong>Mutually Independent（相互互斥）</strong>: the collection of events is mutually independent if and only if for every combination of ${i_1,i_2,…,i_k} \subset {1,2,…,n}$, we have:</p>
+<script type="math/tex; mode=display">P(\cap^k_{j=1})=\prod^k_{j=1} P(A_{i_j}).</script><p>pairwise independent and mutually independent: mutually independent must be pairwise independent. The reverse is not true.</p>
 
 
         <hr />
@@ -357,7 +390,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Fundamentals-of-Probability-and-Statistics"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Fundamentals of Probability and Statistics</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基础知识"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">基础知识</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Fundamentals-of-Probability-and-Statistics-I"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Fundamentals of Probability and Statistics I</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Sets-and-Events"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Sets and Events</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#概率"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">概率</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常见概率公式"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">常见概率公式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#加法公式"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">加法公式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#减法公式"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">减法公式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#条件-Conditional-概率公式"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">条件(Conditional)概率公式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#贝叶斯-Bayes-公式"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">贝叶斯(Bayes)公式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#全概率公式"><span class="toc-nav-number">1.3.5.</span> <span class="toc-nav-text">全概率公式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#乘法概率公式-Joint-Probability"><span class="toc-nav-number">1.3.6.</span> <span class="toc-nav-text">乘法概率公式(Joint Probability)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#独立事件"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">独立事件</span></a></li></ol></li></ol>
             
           
           </div>
@@ -661,7 +694,7 @@
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
         
 
         <!-- background effects end -->
@@ -671,6 +704,22 @@
     
         <script src="/js/ribbonDynamic.js"></script>
     
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 
 </html>
