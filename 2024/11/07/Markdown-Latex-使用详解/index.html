@@ -123,7 +123,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">765</span> and
+                                Words <span class="post-count">862</span> and
                                 Reading Time <span class="post-count">3</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -269,18 +269,21 @@
         <h1 id="Markdown-amp-Latex-使用详解"><a href="#Markdown-amp-Latex-使用详解" class="headerlink" title="Markdown &amp; Latex 使用详解"></a>Markdown &amp; Latex 使用详解</h1><p>由于我一直在使用这两个工具，但是大多数时候都现用现查，所以打算自己整理一个使用文档。为了让我不混淆这两种语法，我将整理成相同点和不同点的形式。我个人感觉两种语言的语法大多数情况下都是类似的。（不然我也不会一直混淆www）</p>
 <p>此文档会随时更新。</p>
 <p>Markdown:<br>Latex:  </p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>加粗:</p>
-<ul>
-<li>markdown: 采用一对**。</li>
-<li>latex: \textbf{}。</li>
-</ul>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>加粗：markdown和latex都可以使用\textbf{}对文本进行加粗。但是对于普通文本，markdown更常用的加粗方式是采用一对**。</p>
 <h2 id="代码篇"><a href="#代码篇" class="headerlink" title="代码篇"></a>代码篇</h2><p>代码分为代码行和代码块。</p>
 <h3 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h3><p>行内代码以两个顿号 ` 隔开，即 `write down your code `。 </p>
 <p>块级代码则以一组```的形式表示，在两组三个顿号之间的内容是代码块的内容。编程语言标注在第一组顿号之后。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"helloworld"</span>)</span><br><span class="line"><span class="comment">// ```代码语言</span></span><br><span class="line"><span class="comment">//    代码块</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 公式篇</span><br><span class="line"></span><br><span class="line">公式也可以分为行内公式和整行公式。</span><br><span class="line"></span><br><span class="line">行内公式的表示语法是使用一组$表示。</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;markdown</span><br><span class="line">$ write down your furmula here$</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 公式篇</span><br><span class="line"></span><br><span class="line">公式也可以分为行内公式、整行公式和多行公式。</span><br><span class="line"></span><br><span class="line">行内公式的表示语法是使用一组$表示。</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;markdown</span><br><span class="line">$ write down your furmula here$</span><br></pre></td></tr></table></figure>
 <p>在markdown中公式的表示语法是使用 $$ write down your formula $$。</p>
 <p>在latex中，我们使用以下形式表示公式：</p>
+<p>如何实现条件多行公式呢？</p>
+<script type="math/tex; mode=display">
+F(n) = \begin{cases}
+  0, & n = 0 \\
+  1, & n = 1 \\
+  F(n-1) + F(n-2), & n > 1
+\end{cases}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">F(n) &#x3D; \begin&#123;cases&#125;</span><br><span class="line">  0, &amp; n &#x3D; 0 \\</span><br><span class="line">  1, &amp; n &#x3D; 1 \\</span><br><span class="line">  F(n-1) + F(n-2), &amp; n &gt; 1</span><br><span class="line">\end&#123;cases&#125;</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
 <h2 id="运算符篇"><a href="#运算符篇" class="headerlink" title="运算符篇"></a>运算符篇</h2><h3 id="上下标"><a href="#上下标" class="headerlink" title="上下标"></a>上下标</h3><p>在markdown中，需要使用到上下标的内容需要放在一对$$内，其中上标使用\^符号，下标使用_符号，如果上下标内容不止一个字符，使用{}括起来。也可以同时使用上下标，例如$U^n_{i=1}$.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\\上标</span><br><span class="line">$X^&#123;x&#125;$</span><br><span class="line">$X^&#123;xx&#125;$</span><br><span class="line">\\下标</span><br><span class="line">$X_&#123;x&#125;$</span><br><span class="line">$X_&#123;xx&#125;$</span><br><span class="line">\\上标 + 下标</span><br><span class="line">$X^n_&#123;i=<span class="number">1</span>&#125;$</span><br></pre></td></tr></table></figure>
 <h3 id="上-下划线-删除线"><a href="#上-下划线-删除线" class="headerlink" title="上/下划线/删除线"></a>上/下划线/删除线</h3><p>$\overline{X}$：使用\overline{}语法，并使用$$括起来。</p>
