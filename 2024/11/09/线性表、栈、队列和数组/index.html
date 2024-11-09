@@ -26,12 +26,12 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
   <title>
-     算法复杂度分析 - Sunny 
+     线性表、栈、队列和数组 - Sunny 
   </title>
 
   <link
     rel="canonical"
-    href="https://dusign.net/2024/11/09/算法复杂度分析/"
+    href="https://dusign.net/2024/11/09/线性表、栈、队列和数组/"
   />
 
   <!-- Bootstrap Core CSS -->
@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
                 /*post*/
             
         
@@ -112,13 +112,9 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#实习和秋招" title="实习和秋招">实习和秋招</a>
-                            
-                              <a class="tag" href="/tags/#计算机基础" title="计算机基础">计算机基础</a>
-                            
                         </div>
-                        <h1>算法复杂度分析</h1>
-                        <h2 class="subheading">一些和算法时间复杂度和空间复杂度分析的问题。</h2>
+                        <h1>线性表、栈、队列和数组</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Sunny on
                             2024-11-09
@@ -127,7 +123,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">437</span> and
+                                Words <span class="post-count">0</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -270,69 +266,18 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h1 id="算法复杂度分析"><a href="#算法复杂度分析" class="headerlink" title="算法复杂度分析"></a>算法复杂度分析</h1><p>这一部分的内容可以说是<strong>最重要</strong>但是我最薄弱的一部分了。重要的原因在于每次面试都会碰到，从大陆找互联网实习面试，到目前在HK很惨淡的找technology for finance实习的面试，到大四卓工保研面试。为什么说我很薄弱呢？因为70%我都是算错或者不会算。</p>
-<p>算法复杂度分析可以分为时间复杂度分析和空间复杂度分析。所有的讨论都基于<strong>通用输入空间/规模(general input space)为n</strong>为前提。</p>
-<h2 id="算法时间复杂度分析"><a href="#算法时间复杂度分析" class="headerlink" title="算法时间复杂度分析"></a>算法时间复杂度分析</h2><p>一个语句的频度是指该语句在算法中被<strong>重复执行的次数</strong>。</p>
-<p><span style="color: red;">算法中所有语句的频度之和记为$T(n)$，即为算法的时间复杂度。</span></p>
-<p>时间复杂度主要分析$T(n)$的数量级。算法中最深层循环中的语句被称为基本运算。所以我们在计算算法时间复杂度时，只关注最深层循环中的语句执行次数即可。</p>
-<h3 id="渐进分析"><a href="#渐进分析" class="headerlink" title="渐进分析"></a>渐进分析</h3><p>渐近分析是一种分析算法时间复杂度$T(n)$的方式：忽略$T(n)$的系数和低阶项，仅关注高阶项。</p>
-<p>例如，$T(n)=2n^2+3n-4=O(n^2)=\theta (n^2)=\Omega(n^2)$</p>
-<p>有三种渐近分析记号：</p>
-<ul>
-<li>$\theta(g(n))$：渐近紧确界。</li>
-<li>$O(g(n))$：渐近上界。</li>
-<li>$\Omega(g(n))$：渐近下界。</li>
-</ul>
-<p>上述表示方法中，$g(n)$都是一致的，都是<strong>忽略$T(n)$的系数和低阶项，仅关注高阶项</strong>。</p>
-<p>为什么渐近上界$O(g(n))$更常见？</p>
-<p>常见的渐进时间复杂度为（以$ O(g(n)) $为例）：</p>
-<script type="math/tex; mode=display">
-O(1)<O(\log_2(n))<O(n)<O(n\log_2(n))<O(n^2)<O(n^3)<O(2^n)<O(n!)</script><h3 id="如何计算时间复杂度？"><a href="#如何计算时间复杂度？" class="headerlink" title="如何计算时间复杂度？"></a>如何计算时间复杂度？</h3><p>我认为程序类型可以分为两种：<br>有循环的程序（例如，$for$循环和$while$循环）和无循环的程序。</p>
-<p>第一步：寻找基本操作。</p>
-<h4 id="循环程序"><a href="#循环程序" class="headerlink" title="循环程序"></a>循环程序</h4><p>我们需要根据循环终止条件和循环变量的操作计算时间复杂度（一般是循环变量的操作次数）。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;n; i=i+<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="comment">// write your code here</span></span><br><span class="line">&#125;</span><br><span class="line">i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i&lt;n) &#123;</span><br><span class="line">    i = i+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在上述$for$循环的结构中，循环终止条件判断指的是$i&lt;n$，循环变量的操作指的是$i=i+1$。在$while$循环中，循环终止条件判断指的是$i&lt;n$，循环变量的操作指的是$i=i+1$。</p>
-<p>设基本运算的执行次数为$t$（在$for$和$while$循环中，基本运算都是循环变量的操作）。在每次基本操作中，循环变量$i$都$+1$。所以在t次操作之后，循环变量的值变为$i=t<em>1$，我们再看循环终止条件$i&lt;n$，代入可以得到$i=t</em>1&lt;n$，即$t&lt;n$。</p>
-<p>所以，$\textbf{T(n)=t=O(n)}$。</p>
-<p>再看一个循环变量操作是乘法的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i&lt;n) &#123;</span><br><span class="line">    i = i*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>设基本操作$i = i*2$的执行次数为$t$，在经历了$t$操作后，循环变量$i=2^t$。根据循环终止条件$i&lt;n$，我们得到式子：$i=2^t&lt;n$，所以，$t&lt;\log_2n$。</p>
-<h4 id="无循环程序"><a href="#无循环程序" class="headerlink" title="无循环程序"></a>无循环程序</h4><p>这一类问题，我们只需要解决递归(recursion)问题即可。<br>递归问题一般使用公式进行递推。例如，求解$T(n)$和下一层更小规模的时间复杂度$T(n-1)$之间的关系。</p>
-<p>我们以最经典的问题使用递归法求斐波那契数列为例子：</p>
-<script type="math/tex; mode=display">
-F(n) = \begin{cases}
-  0, & n = 0 \\
-  1, & n = 1 \\
-  F(n-1) + F(n-2), & n > 1
-\end{cases}</script><p>递归问题的原理是逐步缩小输入数据的规模，所以计算递归问题的时间复杂度也可以按照这个思路，计算所有基本语句的执行次数。</p>
-<p>假设原始问题（输入规模为$n$）的时间复杂度为T(n)，根据斐波那契数列公式我们可以知道，$T(n)=1+T(n-1)+T(n-2)$，其中的$1$指的是这一层计算的次数，如果有循环的话，执行次数就会转换为$n$了。接下来，进行下一层的推导，$T(n)=O(1)+(O(1)+T(n-1)+T(n-2))+(O(1)+T(n-2)+T(n-3))$。所以，</p>
-<script type="math/tex; mode=display">T(n)=O(1)+2^1*O(1)+2^2*O(1)+...+2^n*O(1)=(2^n-1)*O(1)=O(2^n)</script><p>递归问题时间复杂度求解还有一个很形象的方法就是递归树法。</p>
-<h3 id="更多例子"><a href="#更多例子" class="headerlink" title="更多例子"></a>更多例子</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">while</span>((i+<span class="number">1</span>)(i+<span class="number">1</span>)&lt;n) &#123;</span><br><span class="line">    i = i+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述问题是循环程序求解，循环变量是$i$，假设基本语句$i=i+1$的执行次数是$t$，在经历了$t$次运算后，$i=5+t$，根据循环终止条件可获得式子：$(t+6)*(t+6)&lt;n$，所以$t&lt;\sqrt{n}-6=O(\sqrt{n})$。</p>
-<h2 id="算法空间复杂度分析"><a href="#算法空间复杂度分析" class="headerlink" title="算法空间复杂度分析"></a>算法空间复杂度分析</h2><p>算法空间复杂度$S(n)$定义为该算法所需要的<strong>辅助存储空间</strong>（默认输入规模为$n$），例如几个与输入数据规模$n$相同的辅助数组的时空间复杂度为$O(n)$、辅助HashMap等。</p>
-<p>空间复杂度的计算还是比较容易的，主要是计算最大辅助存储空间即可，例如二维数组$int[n][n]$的空间复杂度$S(n)$为$O(n^2)$。根据渐近分析的定义，我们只选择最高阶项即可。</p>
-<h3 id="递归问题的空间复杂度分析"><a href="#递归问题的空间复杂度分析" class="headerlink" title="递归问题的空间复杂度分析"></a>递归问题的空间复杂度分析</h3><p>递归问题的算法复杂度分析涉及到程序运行原理，每进行一层的递归，都需要程序运行栈提供$O(1)$的辅助存储位置保存这一层的结果，直到递归程序到达底端，此时程序运行栈中保存的数据数量最多，只要计算这个时候占了多少存储空间即可。在递归树中，空间复杂度为递归树的层高。</p>
-<p><em>参考文献：北航计算机专业《算法设计与分析》课程、王道数据结构、HKU ARIN7001 PartIII</em></p>
-
+        
 
         <hr />
         <!-- Pager -->
         <ul class="pager">
-          
-          <li class="previous">
+           
+          <li class="next">
             <a
               href="/2024/11/09/数学预备知识/"
               data-toggle="tooltip"
               data-placement="top"
               title="数学预备知识"
-              >&larr; Previous Post</a
-            >
-          </li>
-           
-          <li class="next">
-            <a
-              href="/2024/11/07/Resume-related-Questions/"
-              data-toggle="tooltip"
-              data-placement="top"
-              title="Resume related Questions"
               >Next Post &rarr;</a
             >
           </li>
@@ -383,21 +328,6 @@ F(n) = \begin{cases}
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
-    
-      
-        <aside id="sidebar">
-          <div id="toc" class="toc-article">
-          <strong class="toc-title">Contents</strong>
-          
-            
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#算法复杂度分析"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">算法复杂度分析</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#算法时间复杂度分析"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">算法时间复杂度分析</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#渐进分析"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">渐进分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#如何计算时间复杂度？"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">如何计算时间复杂度？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环程序"><span class="toc-nav-number">1.1.2.1.</span> <span class="toc-nav-text">循环程序</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#无循环程序"><span class="toc-nav-number">1.1.2.2.</span> <span class="toc-nav-text">无循环程序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更多例子"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">更多例子</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#算法空间复杂度分析"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">算法空间复杂度分析</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#递归问题的空间复杂度分析"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">递归问题的空间复杂度分析</span></a></li></ol></li></ol></li></ol>
-            
-          
-          </div>
-        </aside>
-      
-    
-
 
       <!-- Sidebar Container -->
       <div
@@ -409,20 +339,6 @@ F(n) = \begin{cases}
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
-            
-            <a
-              class="tag"
-              href="/tags/#实习和秋招"
-              title="实习和秋招"
-              >实习和秋招</a
-            >
-            
-            <a
-              class="tag"
-              href="/tags/#计算机基础"
-              title="计算机基础"
-              >计算机基础</a
-            >
             
           </div>
         </section>
