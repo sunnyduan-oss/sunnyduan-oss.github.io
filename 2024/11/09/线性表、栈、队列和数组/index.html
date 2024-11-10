@@ -189,6 +189,13 @@
 
                         
                         <li>
+                            <a href="/about/">About Sunny</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -197,13 +204,6 @@
                         
                         <li>
                             <a href="/categories/">Categories</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About Sunny</a>
                         </li>
                         
                     
@@ -320,7 +320,7 @@
 <h4 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h4><p><strong>循环单链表</strong>和单链表的区别是，最后一个结点的后继指针不是指向NULL，而是指向链表的第一个结点。</p>
 <p><strong>循环双链表</strong>和双链表的区别是，最后一个结点的后继指针指向第一个结点，并且第一个结点的前驱指针指向最后一个结点。</p>
 <h4 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h4><p>静态链表是使用数组来描述线性表的链式存储结构，静态链表需要一块连续的内存空间保存。对于每一个结点，也有数据域和指针域，指针域是下一个结点在数组中的相对地址。下面这张图可以很轻松地理解静态链表了：</p>
-<p><img src="2024-11-09-线性表、栈、队列和数组/静态链表.png" alt="静态链表"></p>
+<p><img src="2024-11-09-线性表、栈、队列和数组/静态链表.png" alt="静态链表"><br><img src="/2024/11/09/%E7%BA%BF%E6%80%A7%E8%A1%A8%E3%80%81%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E6%95%B0%E7%BB%84/%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8.png" class="" title="静态链表"></p>
 <h3 id="顺序表和链表的比较"><a href="#顺序表和链表的比较" class="headerlink" title="顺序表和链表的比较"></a>顺序表和链表的比较</h3><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
 <li>存取方式：顺序表可以顺序存取也可以随机存取，但是链表只能顺序存取。</li>
 <li>逻辑结构和物理结构：线性表在逻辑结构和物理结构保持统一，但是链表逻辑结构相邻，物理结构不一定相邻。</li>
@@ -343,7 +343,7 @@
 <h3 id="队列的链式存储"><a href="#队列的链式存储" class="headerlink" title="队列的链式存储"></a>队列的链式存储</h3><p>队列的链式表示称为链队列，本质上是一个带有队头指针和队尾指针的单链表。</p>
 <h3 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h3><p>双端队列是指允许两端都可以进行插入和删除操作的线性表。</p>
 <p><strong><em>个人感觉栈和队列的内容需要配合王道练习题理解。</em></strong></p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>定义：数组是由$n$($n\geq 1$)个相同类型的数据元素构成的有限序列，每个数据元素都是一个数组元素。</p>
+<h2 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h2><p>定义：数组是由$n$($n\geq 1$)个相同类型的数据元素构成的有限序列，每个数据元素都是一个数组元素。</p>
 <ul>
 <li>下标：每个元素在n个线性关系中的序号。</li>
 <li>维界：下标的取值范围。</li>
@@ -443,7 +443,7 @@ k = \begin{cases}
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线性表、栈、队列和数组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性表、栈、队列和数组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表-Linear-List"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">线性表(Linear List)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表的存储结构"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">线性表的存储结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的顺序存储"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">线性表的顺序存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#顺序表的基本操作"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text">顺序表的基本操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的链式存储"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">线性表的链式存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#单链表"><span class="toc-nav-number">1.2.2.1.</span> <span class="toc-nav-text">单链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#双链表"><span class="toc-nav-number">1.2.2.2.</span> <span class="toc-nav-text">双链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环链表"><span class="toc-nav-number">1.2.2.3.</span> <span class="toc-nav-text">循环链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#静态链表"><span class="toc-nav-number">1.2.2.4.</span> <span class="toc-nav-text">静态链表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#顺序表和链表的比较"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">顺序表和链表的比较</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#区别"><span class="toc-nav-number">1.2.3.1.</span> <span class="toc-nav-text">区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#如何选择线性表还是链表？"><span class="toc-nav-number">1.2.3.2.</span> <span class="toc-nav-text">如何选择线性表还是链表？</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#栈-Stack"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">栈(Stack)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的顺序存储结构"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">栈的顺序存储结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的链式存储结构"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">栈的链式存储结构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#队列-Queue"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">队列(Queue)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的顺序存储"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">队列的顺序存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环队列"><span class="toc-nav-number">1.4.1.1.</span> <span class="toc-nav-text">循环队列</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的链式存储"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">队列的链式存储</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#双端队列"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">双端队列</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">数组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数组的存储结构"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">数组的存储结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#特殊矩阵的压缩存储"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">特殊矩阵的压缩存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#对称矩阵"><span class="toc-nav-number">1.5.2.1.</span> <span class="toc-nav-text">对称矩阵</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#三角矩阵"><span class="toc-nav-number">1.5.2.2.</span> <span class="toc-nav-text">三角矩阵</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#三对角矩阵"><span class="toc-nav-number">1.5.2.3.</span> <span class="toc-nav-text">三对角矩阵</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#稀疏矩阵"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">稀疏矩阵</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的应用"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">栈的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#括号匹配"><span class="toc-nav-number">1.6.1.1.</span> <span class="toc-nav-text">括号匹配</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#表达式求值"><span class="toc-nav-number">1.6.1.2.</span> <span class="toc-nav-text">表达式求值</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#递归"><span class="toc-nav-number">1.6.1.3.</span> <span class="toc-nav-text">递归</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的应用"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">队列的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#层次遍历"><span class="toc-nav-number">1.6.2.1.</span> <span class="toc-nav-text">层次遍历</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#计算机系统"><span class="toc-nav-number">1.6.2.2.</span> <span class="toc-nav-text">计算机系统</span></a></li></ol></li></ol></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线性表、栈、队列和数组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性表、栈、队列和数组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表-Linear-List"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">线性表(Linear List)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表的存储结构"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">线性表的存储结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的顺序存储"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">线性表的顺序存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#顺序表的基本操作"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text">顺序表的基本操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的链式存储"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">线性表的链式存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#单链表"><span class="toc-nav-number">1.2.2.1.</span> <span class="toc-nav-text">单链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#双链表"><span class="toc-nav-number">1.2.2.2.</span> <span class="toc-nav-text">双链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环链表"><span class="toc-nav-number">1.2.2.3.</span> <span class="toc-nav-text">循环链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#静态链表"><span class="toc-nav-number">1.2.2.4.</span> <span class="toc-nav-text">静态链表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#顺序表和链表的比较"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">顺序表和链表的比较</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#区别"><span class="toc-nav-number">1.2.3.1.</span> <span class="toc-nav-text">区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#如何选择线性表还是链表？"><span class="toc-nav-number">1.2.3.2.</span> <span class="toc-nav-text">如何选择线性表还是链表？</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#栈-Stack"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">栈(Stack)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的顺序存储结构"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">栈的顺序存储结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的链式存储结构"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">栈的链式存储结构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#队列-Queue"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">队列(Queue)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的顺序存储"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">队列的顺序存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环队列"><span class="toc-nav-number">1.4.1.1.</span> <span class="toc-nav-text">循环队列</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的链式存储"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">队列的链式存储</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#双端队列"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">双端队列</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组-Array"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">数组(Array)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数组的存储结构"><span class="toc-nav-number">1.5.1.</span> <span class="toc-nav-text">数组的存储结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#特殊矩阵的压缩存储"><span class="toc-nav-number">1.5.2.</span> <span class="toc-nav-text">特殊矩阵的压缩存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#对称矩阵"><span class="toc-nav-number">1.5.2.1.</span> <span class="toc-nav-text">对称矩阵</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#三角矩阵"><span class="toc-nav-number">1.5.2.2.</span> <span class="toc-nav-text">三角矩阵</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#三对角矩阵"><span class="toc-nav-number">1.5.2.3.</span> <span class="toc-nav-text">三对角矩阵</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#稀疏矩阵"><span class="toc-nav-number">1.5.3.</span> <span class="toc-nav-text">稀疏矩阵</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#栈的应用"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">栈的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#括号匹配"><span class="toc-nav-number">1.6.1.1.</span> <span class="toc-nav-text">括号匹配</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#表达式求值"><span class="toc-nav-number">1.6.1.2.</span> <span class="toc-nav-text">表达式求值</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#递归"><span class="toc-nav-number">1.6.1.3.</span> <span class="toc-nav-text">递归</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的应用"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">队列的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#层次遍历"><span class="toc-nav-number">1.6.2.1.</span> <span class="toc-nav-text">层次遍历</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#计算机系统"><span class="toc-nav-number">1.6.2.2.</span> <span class="toc-nav-text">计算机系统</span></a></li></ol></li></ol></li></ol></li></ol>
             
           
           </div>
@@ -747,7 +747,7 @@ k = \begin{cases}
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -757,22 +757,6 @@ k = \begin{cases}
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>
