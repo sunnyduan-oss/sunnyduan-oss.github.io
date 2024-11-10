@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">805</span> and
-                                Reading Time <span class="post-count">2</span> Minutes
+                                Words <span class="post-count">2k</span> and
+                                Reading Time <span class="post-count">7</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -189,6 +189,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About Sunny</a>
                         </li>
                         
@@ -203,13 +210,6 @@
 
                         
                         <li>
-                            <a href="/photography/">Photography</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/tags/">Tags</a>
                         </li>
                         
@@ -217,7 +217,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/photography/">Photography</a>
                         </li>
                         
                     
@@ -295,11 +295,39 @@
 </ul>
 <h4 id="顺序表的基本操作"><a href="#顺序表的基本操作" class="headerlink" title="顺序表的基本操作"></a>顺序表的基本操作</h4><p>重点分析几种基本操作移动结点的平均次数。</p>
 <ol>
-<li>插入操作</li>
-<li>删除操作</li>
-<li>按值查找（顺序查找）<h3 id="线性表的链式存储"><a href="#线性表的链式存储" class="headerlink" title="线性表的链式存储"></a>线性表的链式存储</h3>线性表的链式存储又称为<strong>链表</strong>。链表的内容可以分为单链表、双链表、循环链表（循环单链表和循环双链表）和静态链表。</li>
+<li>插入操作：如果在顺序表第$0$位置插入元素，需要移动$n$个元素；如果在顺序表的末尾插入元素，需要移动$0$个元素，时间复杂度用$O(1)$表示；所以平均移动次数为$\sum_{i=0}^n p_i(n-i)={n \over 2}$，插入元素算法的时间复杂度为$O(n)$。</li>
+<li>删除操作：如果删除第一个元素，需要移动$n-1$个元素；如果删除末尾元素，需要移动$0$个元素；平均移动元素数量是$\sum_{i=0}^{n-1} p_i(n-i-1)={n-1 \over 2}$。</li>
+<li>按值查找（顺序查找）：如果目标元素是第一个元素，需要比较$1$次，时间复杂度可以表示为$O(1)$；如果目标元素是末尾元素，需要比较$n$次；平均比较次数是$\sum_{i=0}^n p_i(n-i+1)={n+1 \over 2}$。</li>
 </ol>
-<h3 id="顺序表和链表的比较"><a href="#顺序表和链表的比较" class="headerlink" title="顺序表和链表的比较"></a>顺序表和链表的比较</h3><h2 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈(Stack)"></a>栈(Stack)</h2><p>栈是只允许在一端进行插入或删除操作的线性表。</p>
+<p>顺序表插入、删除和按值查找算法时间复杂度均为$O(n)$。</p>
+<h3 id="线性表的链式存储"><a href="#线性表的链式存储" class="headerlink" title="线性表的链式存储"></a>线性表的链式存储</h3><p>线性表的链式存储又称为<strong>链表</strong>。链表的内容可以分为单链表、双链表、循环链表（循环单链表和循环双链表）和静态链表。</p>
+<h4 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h4><p>通过一组任意的存储单元来存储线性表中的数据元素，使用<strong>指针</strong>建立数据元素之间的线性关系。对于每个链表结点，同时保存元素自身信息和一个指向后继数据元素结点的指针。</p>
+<p>通常使用头指针(head)来标识一个单链表，指向单链表的起始地址。需要<strong>讨论head是否为NULL</strong>，如果head==NULL，说明单链表是空的，否则指向单链表的第一个结点。</p>
+<h5 id="单链表的重要操作"><a href="#单链表的重要操作" class="headerlink" title="单链表的重要操作"></a>单链表的重要操作</h5><ol>
+<li>插入结点操作</li>
+</ol>
+<p>插入结点可以分为前插和后插。后插操作的时间复杂度为$O(1)$。前插操作可以转换为后插操作，并且将传统前插操作的时间复杂度$O(n)$降为$O(1)$。</p>
+<p>前插=后插 + 交换待插入结点$<em>s$和目标结点$</em>p$的data域。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后插</span></span><br><span class="line">s-&gt;next = p-&gt;next;</span><br><span class="line">p-&gt;next = s;</span><br><span class="line"><span class="comment">//交换值</span></span><br><span class="line">temp = s-&gt;data;</span><br><span class="line">s-&gt;data = p-&gt;data;</span><br><span class="line">p-&gt;data = temp;</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>删除结点操作</li>
+</ol>
+<p>删除某个特定结点$<em>p$，如果按照传统操作，需要先找到结点的前驱结点，再进行删除操作，此时时间复杂度为$O(n)$。如果将问题转化为删除$</em>p$的下一个结点，并将下一个结点的data域赋给$*p$，时间复杂度可以将为$O(1)$。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">q = p-&gt;next;</span><br><span class="line">p-&gt;data = p-&gt;next-&gt;data;</span><br><span class="line">p-&gt;next = p-&gt;next-&gt;next;</span><br><span class="line"><span class="built_in">free</span>(q);</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>建立单链表：有头插法和尾插法两种，为了保持数据元素顺序，推荐使用尾插法。</li>
+</ol>
+<h4 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h4><p>对于每个链表结点，同时保存元素自身信息、一个指向后继数据元素结点的指针以及一个指向前驱元素结点的指针。</p>
+<h4 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h4><p><strong>循环单链表</strong>和单链表的区别是，最后一个结点的后继指针不是指向NULL，而是指向链表的第一个结点。</p>
+<p><strong>循环双链表</strong>和双链表的区别是，最后一个结点的后继指针指向第一个结点，并且第一个结点的前驱指针指向最后一个结点。</p>
+<h4 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h4><p>静态链表是使用数组来描述线性表的链式存储结构，静态链表需要一块连续的内存空间保存。对于每一个结点，也有数据域和指针域，指针域是下一个结点在数组中的相对地址。下面这张图可以很轻松地理解静态链表了：</p>
+<p><img src="2024-11-09-线性表、栈、队列和数组/静态链表.png" alt="静态链表"></p>
+<h3 id="顺序表和链表的比较"><a href="#顺序表和链表的比较" class="headerlink" title="顺序表和链表的比较"></a>顺序表和链表的比较</h3><h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ol>
+<li>存取方式：顺序表可以顺序存取也可以随机存取，但是链表只能顺序存取。</li>
+<li>逻辑结构和物理结构：线性表在逻辑结构和物理结构保持统一，但是链表逻辑结构相邻，物理结构不一定相邻。</li>
+<li>查找、插入和删除：链表的查询算法复杂度均为$O(n)$。无序线性表按值查询时间复杂度为$O(n)$；有序线性表按值查找可以使用折半查找，时间复杂度为$O(\log_2n)$；线性表按序号查找时间复杂度均为$O(1)$。对于插入和删除操作，线性表平均要移动半个表长的元素，链表只需要修改相关结点的指针域即可。</li>
+<li>空间分配：线性表存储密度高（因为不用考虑指针域），但是线性表的规模需要提前确定（因为需要分配连续的空间）。链表在需要添加新的结点时，为新结点申请空间即可，更加灵活。</li>
+</ol>
+<h4 id="如何选择线性表还是链表？"><a href="#如何选择线性表还是链表？" class="headerlink" title="如何选择线性表还是链表？"></a>如何选择线性表还是链表？</h4><p>可以从存储，运算（复杂度），环境的方向进行思考。</p>
+<h2 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈(Stack)"></a>栈(Stack)</h2><p>栈是只允许在一端进行插入或删除操作的线性表。</p>
 <h2 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h2><p>队列是只允许在表的一端进行插入，而在表的另一端进行删除的线性表。</p>
 <h3 id="队列的顺序存储"><a href="#队列的顺序存储" class="headerlink" title="队列的顺序存储"></a>队列的顺序存储</h3><h3 id="队列的链式存储"><a href="#队列的链式存储" class="headerlink" title="队列的链式存储"></a>队列的链式存储</h3><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>定义：</p>
 <p>数组是线性表的推广。一维数组可视为一个线性表；二维数组可视为其元素是定长数组的线性表。数组一旦被定义，其维数和维界就不再改变。</p>
@@ -370,7 +398,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线性表、栈、队列和数组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性表、栈、队列和数组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表-Linear-List"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">线性表(Linear List)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表的存储结构"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">线性表的存储结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的顺序存储"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">线性表的顺序存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#顺序表的基本操作"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text">顺序表的基本操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的链式存储"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">线性表的链式存储</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#顺序表和链表的比较"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">顺序表和链表的比较</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#栈-Stack"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">栈(Stack)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#队列-Queue"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">队列(Queue)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的顺序存储"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">队列的顺序存储</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的链式存储"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">队列的链式存储</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">数组</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">应用</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线性表、栈、队列和数组"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性表、栈、队列和数组</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表-Linear-List"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">线性表(Linear List)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#线性表的存储结构"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">线性表的存储结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的顺序存储"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">线性表的顺序存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#顺序表的基本操作"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text">顺序表的基本操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#线性表的链式存储"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">线性表的链式存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#单链表"><span class="toc-nav-number">1.2.2.1.</span> <span class="toc-nav-text">单链表</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#单链表的重要操作"><span class="toc-nav-number">1.2.2.1.1.</span> <span class="toc-nav-text">单链表的重要操作</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#双链表"><span class="toc-nav-number">1.2.2.2.</span> <span class="toc-nav-text">双链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#循环链表"><span class="toc-nav-number">1.2.2.3.</span> <span class="toc-nav-text">循环链表</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#静态链表"><span class="toc-nav-number">1.2.2.4.</span> <span class="toc-nav-text">静态链表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#顺序表和链表的比较"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">顺序表和链表的比较</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#区别"><span class="toc-nav-number">1.2.3.1.</span> <span class="toc-nav-text">区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#如何选择线性表还是链表？"><span class="toc-nav-number">1.2.3.2.</span> <span class="toc-nav-text">如何选择线性表还是链表？</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#栈-Stack"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">栈(Stack)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#队列-Queue"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">队列(Queue)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的顺序存储"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">队列的顺序存储</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#队列的链式存储"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">队列的链式存储</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数组"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">数组</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#应用"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">应用</span></a></li></ol></li></ol>
             
           
           </div>
