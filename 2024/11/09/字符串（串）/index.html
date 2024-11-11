@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
                 /*post*/
             
         
@@ -112,9 +112,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#实习和秋招" title="实习和秋招">实习和秋招</a>
+                            
+                              <a class="tag" href="/tags/#计算机基础" title="计算机基础">计算机基础</a>
+                            
                         </div>
                         <h1>字符串（串）</h1>
-                        <h2 class="subheading"></h2>
+                        <h2 class="subheading">字符串的相关概念和模式匹配算法。</h2>
                         <span class="meta">
                             Posted by Sunny on
                             2024-11-09
@@ -123,7 +127,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">0</span> and
+                                Words <span class="post-count">378</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -185,7 +189,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/categories/">Categories</a>
                         </li>
                         
                     
@@ -199,14 +203,14 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/photography/">Photography</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/photography/">Photography</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -266,7 +270,24 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        
+        <h1 id="字符串（串）"><a href="#字符串（串）" class="headerlink" title="字符串（串）"></a>字符串（串）</h1><p>串(string)是由零个和多个<strong>字符</strong>组成的有限序列，一般记为：</p>
+<script type="math/tex; mode=display">
+S='a_1a_2...a_n'(n \geq 0)</script><p>前缀：字符串的前缀指除了最后一个字符之外的所有头部子串（是一个集合）。例如，字符串’abcde’的前缀是{a, ab, abc, abcd}，字符串’a’的前缀是{}。\<br>后缀：字符串的后缀指除了第一个地租之外的所有尾部子串。例如，字符串’abcde’的后缀是{e, de, cde, bcde}，字符串’a’的后缀是{}。\<br>部分匹配值：字符串的前缀和后缀的最长相等前后缀长度。例如，字符串’abcde’的部分匹配值为0，因为不存在前缀和后缀相等的情况。</p>
+<h2 id="串的存储结构"><a href="#串的存储结构" class="headerlink" title="串的存储结构"></a>串的存储结构</h2><ol>
+<li>定长顺序存储表示</li>
+<li>堆分配存储表示</li>
+<li>块链存储表示：类似于线性表的链式存储结构，每个结点称为块，所以链表称为块链结构。和线性表的链式存储结构不同的是，每个块可以存储多个字符。</li>
+</ol>
+<h2 id="串的模式匹配"><a href="#串的模式匹配" class="headerlink" title="串的模式匹配"></a>串的模式匹配</h2><p>串的模式匹配：子串的定位操作，它通常求的是子串（substring），也称为模式串，在主串中的位置。</p>
+<h3 id="暴力匹配法"><a href="#暴力匹配法" class="headerlink" title="暴力匹配法"></a>暴力匹配法</h3><p>双重循环，假设主串长度为$n$，模式串长度为$m$，暴力匹配法时间复杂度为$O(mn)$。</p>
+<h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>KMP算法分为两部分：</p>
+<ol>
+<li>计算模式串$T$的错位部分匹配值数组$next$。</li>
+</ol>
+<ol>
+<li>KMP匹配算法。</li>
+</ol>
+
 
         <hr />
         <!-- Pager -->
@@ -326,6 +347,21 @@
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#字符串（串）"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">字符串（串）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#串的存储结构"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">串的存储结构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#串的模式匹配"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">串的模式匹配</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#暴力匹配法"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">暴力匹配法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#KMP算法"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">KMP算法</span></a></li></ol></li></ol></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
 
       <!-- Sidebar Container -->
       <div
@@ -337,6 +373,20 @@
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
+            
+            <a
+              class="tag"
+              href="/tags/#实习和秋招"
+              title="实习和秋招"
+              >实习和秋招</a
+            >
+            
+            <a
+              class="tag"
+              href="/tags/#计算机基础"
+              title="计算机基础"
+              >计算机基础</a
+            >
             
           </div>
         </section>
