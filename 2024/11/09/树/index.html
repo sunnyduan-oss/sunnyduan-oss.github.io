@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">23</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">842</span> and
+                                Reading Time <span class="post-count">3</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -271,7 +271,53 @@
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
         <h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><p>树一种递归的数据结构，是$n(n \geq 0)$个结点的有限集。</p>
-
+<p>任意一棵非空树应满足：</p>
+<ul>
+<li>有且仅有一个根结点。</li>
+<li>当$n&gt;1$时，其余结点可以分为$m(m&gt;0)$个互不相交的有限集$T_1,T_2,…T_m$，其中每个集合本身又是一棵树并称为根结点的子树。</li>
+</ul>
+<p>树的特点：</p>
+<ul>
+<li>根结点没有前驱，其余结点有且只有一个前驱。</li>
+<li>所有结点都可以有<strong>零个或多个后继</strong>。</li>
+</ul>
+<h2 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h2><ul>
+<li>结点的度：一个结点的<strong>孩子个数</strong>称为该结点的度。</li>
+<li>树的度：树中<strong>结点的最大度数</strong>称为树的度。</li>
+<li>分支结点（非终端结点）：度大于0的结点。</li>
+<li>叶结点（终端结点）：度为0的结点。</li>
+<li>结点的层次：从根结点开始定义，根结点为第1层，它的孩子为第2层，以此类推。</li>
+<li>结点的深度：结点所在层次。</li>
+<li>树的深度：树中结点的最大层次。</li>
+<li>有序树和无序树：树中结点的各子树从左到右是有次序的，即左右子树不能交换，称为有序树。</li>
+<li>路径：树中两个结点之间所经过的结点序列。<br><em>路径部分有疑惑</em></li>
+<li>路径长度：路径上所经过的边的数量。</li>
+<li>森林：$m(m \geq 0)$棵互不相交的树的集合。<h2 id="树的性质"><a href="#树的性质" class="headerlink" title="树的性质"></a>树的性质</h2></li>
+<li>树的结点数$n$等于所有结点的度数之和加1。</li>
+<li>度为$m$的树中第$i$层上至多有$m^{i-1}$个结点。</li>
+</ul>
+<p>推导：假设所有结点的度均为$m$，第1层有$m^0$个结点，第2层有$m^1$个，以此类推，第$i$层有$m^{i-1}$个结点。</p>
+<ul>
+<li>高度为$h$的$m$叉树至多有$(m^h-1)(m-1)$个结点。</li>
+<li>度为$m$、具有$n$个结点的树的最小高度为$\log_m (n(m-1)+1)$。</li>
+</ul>
+<p>推导：假设除了叶结点外结点的度均为$m$。可以列出式子，$m^0+m^1+…+m^{h-1}=n$，可以求出$h=\log_m (n(m-1)+1)$。</p>
+<ul>
+<li>度为$m$，具有$n$个结点的树的最大高度$h$为$n-m+1$。</li>
+</ul>
+<p>推导：假设只有一个结点的度为$m$。</p>
+<h2 id="树的存储"><a href="#树的存储" class="headerlink" title="树的存储"></a>树的存储</h2><p>树需要保存的信息有：结点本身的数据信息$data$和结点之间的关系。\<br>和线性表的存储结构一样，树的存储也分为顺序存储结构和链式存储结构。</p>
+<h3 id="多重链表结构"><a href="#多重链表结构" class="headerlink" title="多重链表结构"></a>多重链表结构</h3><h4 id="定长结点的多重链表结构"><a href="#定长结点的多重链表结构" class="headerlink" title="定长结点的多重链表结构"></a>定长结点的多重链表结构</h4><p>设$k$为树的度，每个链结点的构造：<br>| 结点数据信息   | 后继结点1 | 后继结点2 |… …|后继结点k|<br>|————|———|———|———|———|<br>| $data$ | $child_1$ | $child_2$ |… …|$child_k$ |</p>
+<p>缺点：不一定每一个结点的度都是$k$，所以浪费存储空间。</p>
+<h4 id="不定长结点的多重链表结构"><a href="#不定长结点的多重链表结构" class="headerlink" title="不定长结点的多重链表结构"></a>不定长结点的多重链表结构</h4><p>每个链结点的构造：<br>| 结点数据信息 | 结点的度 |后继结点1 | 后继结点2 |… …|后继结点k|<br>|————|———|———|———|———|———|<br>| $data$ |$k$| $child_1$ | $child_2$ |… …|$child_k$ |</p>
+<p>缺点：对树的操作不方便。</p>
+<h3 id="三重链表结构"><a href="#三重链表结构" class="headerlink" title="三重链表结构"></a>三重链表结构</h3><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>二叉树在树的基础上，其特点是每个结点<strong>至多只有两棵子树</strong>（即二叉树中不存在度大于2的结点），并且二叉树的树有左右之分，即是有序树。</p>
+<p>注意：</p>
+<p>二叉树和<strong>度为2的有序树</strong>的区别：</p>
+<ul>
+<li><h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2></li>
+</ul>
+<h2 id="树、森林"><a href="#树、森林" class="headerlink" title="树、森林"></a>树、森林</h2>
 
         <hr />
         <!-- Pager -->
@@ -338,7 +384,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#树"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">树</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#树"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">树</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本术语"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">基本术语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#树的性质"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">树的性质</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#树的存储"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">树的存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#多重链表结构"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">多重链表结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#定长结点的多重链表结构"><span class="toc-nav-number">1.3.1.1.</span> <span class="toc-nav-text">定长结点的多重链表结构</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#不定长结点的多重链表结构"><span class="toc-nav-number">1.3.1.2.</span> <span class="toc-nav-text">不定长结点的多重链表结构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#三重链表结构"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">三重链表结构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二叉树"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">二叉树</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#红黑树"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">红黑树</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#树、森林"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">树、森林</span></a></li></ol></li></ol>
             
           
           </div>
