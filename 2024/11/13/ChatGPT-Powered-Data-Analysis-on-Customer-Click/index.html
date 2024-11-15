@@ -125,7 +125,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">342</span> and
+                                Words <span class="post-count">574</span> and
                                 Reading Time <span class="post-count">2</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -296,7 +296,7 @@
 <li>Implement a user-friendly interface with clear instructions.</li>
 </ol>
 </li>
-<li>Data Analysis Summary: After the data analysis, it requires to <strong>answer some basic questions</strong> about<br>the Customer, for example:</li>
+<li>Data Analysis Summary: After the data analysis, it requires to <strong>answer some basic questions</strong> about the Customer, for example:</li>
 </ol>
 <ul>
 <li>How often the same customer revisiting the store (online or physical), how often the same customer revisiting the store (online or physical)</li>
@@ -316,8 +316,20 @@
 <p>Questions:</p>
 <ol>
 <li>“Ensure secure data handling with basic validation”是什么意思？</li>
-<li>“Allow users to ask questions about datasets and receive insights”中的database是什么意思？</li>
 </ol>
+<p>技术栈：</p>
+<ul>
+<li>前端：Vue框架 + Axios(http库)</li>
+<li>后端：Flask框架 + MySQL数据库</li>
+</ul>
+<p>HTTP客户端：实际上就是前端，使用Axios和Vue框架集成</p>
+<p>HTTP服务器端：Flask框架 + MySQL数据库</p>
+<p>进阶：Running Flask on <strong>Kubernetes</strong></p>
+<p>Axios是一个前端库，主要用于在浏览器中发送HTTP请求。它可以让你通过JavaScript与<strong>后端服务器</strong>进行通信，获取数据或提交信息。</p>
+<p>Yarn是一个JavaScript包管理工具。管理和JavaScript相关的包。类似于Python中的pip，也是一个包管理工具。其实还是使用npm包进行安装。</p>
+<p>Node是什么？Node.js是一个开源的、跨平台的 JavaScript运行时环境。可以说，JavaScript借助Node.js的编译器在机器上运行。</p>
+<h3 id="用户登录和注册"><a href="#用户登录和注册" class="headerlink" title="用户登录和注册"></a>用户登录和注册</h3><p>登录：用户名username 和 密码password<br>注册：用户名username 和 密码password 和 邮箱email</p>
+<p>密码存储时，需要对原始密码进行加密，下面是加密用的包<br>from werkzeug.security import generate_password_hash, check_password_hash</p>
 
 
         <hr />
@@ -329,7 +341,7 @@
               href="/2024/11/14/Flask框架学习/"
               data-toggle="tooltip"
               data-placement="top"
-              title="Flask框架学习"
+              title="Vue+Flask前后端分离开发"
               >&larr; Previous Post</a
             >
           </li>
@@ -385,7 +397,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ChatGPT-Powered-Data-Analysis-on-Customer-Click"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ChatGPT-Powered Data Analysis on Customer Click</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Bacis-Requirements"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Bacis Requirements</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Project-Analysis"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Project Analysis</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ChatGPT-Powered-Data-Analysis-on-Customer-Click"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ChatGPT-Powered Data Analysis on Customer Click</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Bacis-Requirements"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Bacis Requirements</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Project-Analysis"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Project Analysis</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#用户登录和注册"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">用户登录和注册</span></a></li></ol></li></ol></li></ol>
             
           
           </div>

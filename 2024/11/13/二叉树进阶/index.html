@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">1.4k</span> and
-                                Reading Time <span class="post-count">4</span> Minutes
+                                Words <span class="post-count">2.6k</span> and
+                                Reading Time <span class="post-count">9</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -328,18 +328,65 @@ ASL= \sum_{i=1}^n p_ic_i</script><p>其中，$n$是二叉树中结点的总数�
 <li>若导致了不平衡，则从结点$w$向上回溯，找到第一个不平衡的结点$z$。对以结点$z$为根的二叉树进行调整操作。</li>
 </ol>
 <h3 id="平衡二叉树的缺陷"><a href="#平衡二叉树的缺陷" class="headerlink" title="平衡二叉树的缺陷"></a>平衡二叉树的缺陷</h3><p>为了保持二叉树的平衡，在每次插入和删除操作后，会非常频繁地调整全树的拓扑结构，代价较大，所以引入了红黑树的结构。</p>
-<h2 id="红黑树-Red-Black-Tree"><a href="#红黑树-Red-Black-Tree" class="headerlink" title="红黑树(Red Black Tree)"></a>红黑树(Red Black Tree)</h2><p>红黑树是一种二叉查找树，在每个结点上添加一个存储位表示结点的颜色，$Red$或$Black$。<br>红黑树的的红黑性质：</p>
+<h2 id="红黑树-Red-Black-Tree"><a href="#红黑树-Red-Black-Tree" class="headerlink" title="红黑树(Red Black Tree)"></a>红黑树(Red Black Tree)</h2><p>红黑树是一种二叉查找树，在每个结点上添加一个存储位表示结点的颜色，$Red$或$Black$。并且，引入外部叶结点($NIL$)，保证红黑树的每个内部结点的左、右孩子均非空。</p>
+<p>红黑树的的红黑性质：</p>
 <ul>
-<li>每个结点只有红色和黑色。</li>
-<li>根结点是黑色的。</li>
-<li></li>
+<li>性质1：每个结点只有红色和黑色。</li>
+<li>性质2：根结点是黑色的。</li>
+<li>性质3：外部叶结点都是黑色的。</li>
+<li>性质4：不存在两个相邻的红结点。（红色父结点的两个孩子均为黑色）</li>
+<li>性质5：对每个结点，从该结点到<strong>任意一个叶结点</strong>的简单路径上，所含黑结点的数量相同。</li>
 </ul>
-<h3 id="红黑树的结点插入"><a href="#红黑树的结点插入" class="headerlink" title="红黑树的结点插入"></a>红黑树的结点插入</h3><p>新插入红黑树的结点初始着为红色。<br>设新插入的结点$z$：</p>
+<p><em>简单路径：其中每个结点只能被访问一次，且没有重复的边的路径。</em></p>
+<h3 id="红黑树的结点插入"><a href="#红黑树的结点插入" class="headerlink" title="红黑树的结点插入"></a>红黑树的结点插入</h3><p>新插入红黑树的结点初始着为红色。新结点的插入容易破坏<strong>性质4</strong>，出现两个连续的红色结点，所以需要使用染色和旋转的方式使之重新满足红黑树的性质。</p>
+<p>设新插入的结点$z$：</p>
 <ol>
 <li>用二叉查找树插入法插入，并将结点$z$着为红色，若结点$z$的父结点是黑色，无需调整。</li>
-<li></li>
+<li>若结点$z$是根结点，则将$z$着为黑色，结束。</li>
+<li>若结点$z$不是根结点，且$z$的父结点是红色的，分为三种情况，区别在于叔结点$y$的颜色不同。<ol>
+<li>叔结点$y$是黑色的，$z$是一个右孩子：（父结点+$z$结点）先左旋，整体再右旋。<strong>（旋转）</strong></li>
+<li>叔结点$y$是黑色的，$z$是一个左孩子：整体右旋。<strong>（旋转）</strong></li>
+<li>叔结点$y$是红色的：父结点和叔结点染成黑色，爷结点染成红色。<strong>（染色）</strong></li>
 </ol>
-<h3 id="红黑树的结点删除"><a href="#红黑树的结点删除" class="headerlink" title="红黑树的结点删除"></a>红黑树的结点删除</h3><h1 id="树的应用"><a href="#树的应用" class="headerlink" title="树的应用"></a>树的应用</h1><h2 id="哈夫曼树"><a href="#哈夫曼树" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h2><h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2>
+</li>
+</ol>
+<p><em>手绘结点插入的示意图。</em></p>
+<h3 id="红黑树的结点删除"><a href="#红黑树的结点删除" class="headerlink" title="红黑树的结点删除"></a>红黑树的结点删除</h3><p>如果说插入新结点可能导致两个连续的红结点，那么删除的结点是黑结点的话，会破坏<strong>性质5</strong>。</p>
+<p><em>后续二轮复习学习。</em></p>
+<h1 id="树的应用"><a href="#树的应用" class="headerlink" title="树的应用"></a>树的应用</h1><h2 id="哈夫曼树-Huffman-Tree"><a href="#哈夫曼树-Huffman-Tree" class="headerlink" title="哈夫曼树(Huffman Tree)"></a>哈夫曼树(Huffman Tree)</h2><p>路径：从树的一个结点到另一个结点之间的分支。</p>
+<p>路径长度：路径上的分支数目。</p>
+<p>权：树中结点被赋予的一个表示某种意义的<strong>值</strong>。</p>
+<p>带权路径长度(Weighted Path Length)：所有叶结点的带权路径长度之和。</p>
+<script type="math/tex; mode=display">
+WPL=\sum_{i=0}^n w_il_i</script><p>其中，$w_i$是第$i$个叶结点的权，$l_i$是叶结点到根结点的路径长度。</p>
+<p>在含有$n$个带权叶结点的二叉树中，带权路径长度最小的二叉树称为哈夫曼树。</p>
+<h3 id="哈夫曼树的构造"><a href="#哈夫曼树的构造" class="headerlink" title="哈夫曼树的构造"></a>哈夫曼树的构造</h3><p>给定$n$个权值分别$w_1,w_2,…,w_n$的结点，构造哈夫曼树的算法如下：</p>
+<ol>
+<li>将这$n$个结点分别作为$n$棵含有一个结点的二叉树，构成森林$F$。</li>
+<li>构造一个新结点，从$F$中选取根结点权值最小的两棵二叉树作为新结点的左右子树，并且将新结点的权值设置为左、右两棵子树的根结点权值和。</li>
+<li>从F中删去选取的两棵树，同时将新得到的树加入$F$中。</li>
+<li>重复步骤2和3，直到$F$中只剩下一棵树为止。</li>
+</ol>
+<h3 id="哈夫曼编码"><a href="#哈夫曼编码" class="headerlink" title="哈夫曼编码"></a>哈夫曼编码</h3><p>在数据通信中，如果对每个字符用长度相等的二进制位表示，则称为固定长度编码；如果不等长，则称为可变长度编码。</p>
+<p>前缀编码：没有一个编码是另外一个编码的前缀。</p>
+<p>二叉树可以实现二进制前缀编码。</p>
+<p>哈夫曼编码：假设我们需要对一个单词编码，每个待编码的字符都是哈夫曼树的叶结点，结点的权值是它出现的频次。</p>
+<p>哈夫曼树的带权路径长度可视为最终编码得到的二进制编码的长度，即各个字符的编码长度 × 字符出现的频次。</p>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>并查集是一种简单的<strong>集合</strong>表示，它支持以下三种操作：</p>
+<ol>
+<li>初始化：将集合$S$中的每个元素都初始化只有一个单元素的子集合。</li>
+<li>合并子集合：把集合$S$中的子集合$S_2$并入子集合$S_1$，要求这两个子集合不相交。</li>
+<li>查找某个元素：查找集合$S$中某个元素所在的子集合，并返回<strong>该子集合的根结点</strong>。</li>
+</ol>
+<h3 id="并查集的实现"><a href="#并查集的实现" class="headerlink" title="并查集的实现"></a>并查集的实现</h3><p>定义父结点指针数组$Father[SIZE]$，$Father[i]$代表集合中第$i$个元素的父结点，如果该结点是根结点，则$Father[i]=-1$。</p>
+<h4 id="并查集的初始化"><a href="#并查集的初始化" class="headerlink" title="并查集的初始化"></a>并查集的初始化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; SIZE; i++) &#123;</span><br><span class="line">    Father[i] = <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="并查集的合并-Union"><a href="#并查集的合并-Union" class="headerlink" title="并查集的合并(Union)"></a>并查集的合并(Union)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (root1 == root2) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">Father[root2] = root1;</span><br></pre></td></tr></table></figure>
+<p>合并操作的时间复杂度是$O(1)$。</p>
+<h4 id="并查集的查找-Find"><a href="#并查集的查找-Find" class="headerlink" title="并查集的查找(Find)"></a>并查集的查找(Find)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(Father[node] &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 还有父结点</span></span><br><span class="line">    node = Father[node]; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> node;</span><br></pre></td></tr></table></figure>
+<p>查找操作的时间复杂度是$O(d)$，$d$为树的深度。</p>
+<p>在极端情况下，$n$个元素构成的集合树深度为$n$，那么查找操作的最坏时间复杂度是$O(n)$，所以需要对并查集的操作进行优化。</p>
+<h3 id="并查集实现的优化"><a href="#并查集实现的优化" class="headerlink" title="并查集实现的优化"></a>并查集实现的优化</h3><p>优化思路：在合并操作前判断两个子集的元素数量，令成员少的根指向成员多的根，即把小树合并到大树。可以开一个数据保存根结点的的元素数量$Member[SIZE]$。</p>
+
 
         <hr />
         <!-- Pager -->
@@ -406,7 +453,7 @@ ASL= \sum_{i=1}^n p_ic_i</script><p>其中，$n$是二叉树中结点的总数�
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#二叉树的进阶"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">二叉树的进阶</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二叉查找树-Binary-Search-Tree-BST"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">二叉查找树(Binary Search Tree, BST)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的构造"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">二叉查找树的构造</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的插入"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">二叉查找树的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的删除"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">二叉查找树的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的查找"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">二叉查找树的查找</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#查找效率"><span class="toc-nav-number">1.1.4.1.</span> <span class="toc-nav-text">查找效率</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#普通二叉树的缺陷"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">普通二叉树的缺陷</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#平衡二叉树（Adelson-Velskii-and-Landis-AVL）"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">平衡二叉树（Adelson-Velskii and Landis, AVL）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树的插入"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">平衡二叉树的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树的删除"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">平衡二叉树的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树的缺陷"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">平衡二叉树的缺陷</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#红黑树-Red-Black-Tree"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">红黑树(Red Black Tree)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#红黑树的结点插入"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">红黑树的结点插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#红黑树的结点删除"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">红黑树的结点删除</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#树的应用"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">树的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#哈夫曼树"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">哈夫曼树</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#并查集"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">并查集</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#二叉树的进阶"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">二叉树的进阶</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二叉查找树-Binary-Search-Tree-BST"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">二叉查找树(Binary Search Tree, BST)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的构造"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">二叉查找树的构造</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的插入"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">二叉查找树的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的删除"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">二叉查找树的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#二叉查找树的查找"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">二叉查找树的查找</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#查找效率"><span class="toc-nav-number">1.1.4.1.</span> <span class="toc-nav-text">查找效率</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#普通二叉树的缺陷"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">普通二叉树的缺陷</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#平衡二叉树（Adelson-Velskii-and-Landis-AVL）"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">平衡二叉树（Adelson-Velskii and Landis, AVL）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树的插入"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">平衡二叉树的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树的删除"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">平衡二叉树的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#平衡二叉树的缺陷"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">平衡二叉树的缺陷</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#红黑树-Red-Black-Tree"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">红黑树(Red Black Tree)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#红黑树的结点插入"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">红黑树的结点插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#红黑树的结点删除"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">红黑树的结点删除</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#树的应用"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">树的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#哈夫曼树-Huffman-Tree"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">哈夫曼树(Huffman Tree)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#哈夫曼树的构造"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">哈夫曼树的构造</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#哈夫曼编码"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">哈夫曼编码</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#并查集"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">并查集</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#并查集的实现"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">并查集的实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#并查集的初始化"><span class="toc-nav-number">2.2.1.1.</span> <span class="toc-nav-text">并查集的初始化</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#并查集的合并-Union"><span class="toc-nav-number">2.2.1.2.</span> <span class="toc-nav-text">并查集的合并(Union)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#并查集的查找-Find"><span class="toc-nav-number">2.2.1.3.</span> <span class="toc-nav-text">并查集的查找(Find)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#并查集实现的优化"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">并查集实现的优化</span></a></li></ol></li></ol></li></ol>
             
           
           </div>
