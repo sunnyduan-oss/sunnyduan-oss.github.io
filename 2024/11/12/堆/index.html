@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">2</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">602</span> and
+                                Reading Time <span class="post-count">2</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -189,13 +189,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About Sunny</a>
                         </li>
                         
@@ -203,7 +196,7 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -217,7 +210,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -270,7 +270,29 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h1 id="堆-Heap"><a href="#堆-Heap" class="headerlink" title="堆(Heap)"></a>堆(Heap)</h1>
+        <h1 id="堆-Heap"><a href="#堆-Heap" class="headerlink" title="堆(Heap)"></a>堆(Heap)</h1><p>堆是一种特殊类型的二叉树，堆具备两个性质：</p>
+<ul>
+<li>每个结点的值大于（或小于）等于其每个子结点的值；</li>
+<li>该二叉树是平衡二叉树。</li>
+</ul>
+<p>如果根结点包含了最大的元素，则是大顶堆(max heap)；反之，是小顶堆（min heap）。</p>
+<p>堆结构的最大好处是元素查找、插入和删除效率高($O(\log_2 n)$)。</p>
+<p>堆<strong>按层的顺序</strong>存储在一个一维数组里$heap[SIZE]$。</p>
+<p>如何根据结点需要求父结点序号？序号为$i(i&gt;0)$的元素父结点序号是$i-1 \over 2$。</p>
+<h2 id="堆的基本操作"><a href="#堆的基本操作" class="headerlink" title="堆的基本操作"></a>堆的基本操作</h2><h3 id="堆的插入"><a href="#堆的插入" class="headerlink" title="堆的插入"></a>堆的插入</h3><p>以大顶堆为例：先将待新结点$e$放在堆的末尾，如果$e$不是根结点，并且比父结点的值大，就和父结点交换。</p>
+<h3 id="堆的删除"><a href="#堆的删除" class="headerlink" title="堆的删除"></a>堆的删除</h3><p>删除指删除堆顶元素。</p>
+<p>以大顶堆为例：将最后一个叶结点中的元素放到要删除的元素位置（指堆顶），删除最后一个叶结点，将根元素$p$在不是叶结点的条件下，如果小于子结点，就和子结点的值交换，直到满足堆的条件。</p>
+<h3 id="堆的构造"><a href="#堆的构造" class="headerlink" title="堆的构造"></a>堆的构造</h3><p>堆有两种构造方法，分别是自顶向下和自底向上。<br>自顶向下构造法的原理是<strong>堆的插入算法</strong>；自底向上构造法的原理是从底层开始构造较小的堆，然后再重复构造较大的堆。</p>
+<h2 id="堆的应用"><a href="#堆的应用" class="headerlink" title="堆的应用"></a>堆的应用</h2><h3 id="优先队列-Priority-Queue"><a href="#优先队列-Priority-Queue" class="headerlink" title="优先队列(Priority Queue)"></a>优先队列(Priority Queue)</h3><p>与传统队列不同的是下一个服务对象是队列中<strong>优先级最高的元素</strong>。优先队列常用的实现方式是用堆，其最大好处是管理元素的效率高，时间复杂度是$O(\log_2 n)$。</p>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><ol>
+<li>将原始序列转换为一个堆，称为原始堆，原始堆的根元素（序列的首元素）是最大元素。</li>
+<li>将堆的首元素与当前堆的尾元素交换位置。（将当前最大元素放在当前序列的末端）</li>
+<li>将“去掉”最大值元素后剩下的元素组成的<strong>子序列</strong>重新转换一个新的堆。</li>
+<li>重复上述过程的第2至第3步n−1次。</li>
+</ol>
+<p>堆排序的时间复杂度是$O(n\log_2 n)$，空间复杂度是$O(1)$（）无需额外辅助空间，堆排序是不稳定的。</p>
+<!-- ## 二顶堆 -->
+
 
         <hr />
         <!-- Pager -->
@@ -337,7 +359,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#堆-Heap"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">堆(Heap)</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#堆-Heap"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">堆(Heap)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#堆的基本操作"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">堆的基本操作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的插入"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">堆的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的删除"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">堆的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的构造"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">堆的构造</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#堆的应用"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">堆的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#优先队列-Priority-Queue"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">优先队列(Priority Queue)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆排序"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">堆排序</span></a></li></ol></li></ol></li></ol>
             
           
           </div>
@@ -641,7 +663,7 @@
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -651,22 +673,6 @@
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>

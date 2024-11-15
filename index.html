@@ -164,13 +164,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About Sunny</a>
                         </li>
                         
@@ -178,7 +171,7 @@
 
                         
                         <li>
-                            <a href="/categories/">Categories</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -192,7 +185,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/categories/">Categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -457,7 +457,15 @@ Vue框架配置路由如何添加缓存使用sessio......
                     二叉树的应用——堆。
                 </h3>
                 <div class="post-content-preview">
-                    堆(Heap)...
+                    堆(Heap)堆是一种特殊类型的二叉树，堆具备两个性质：
+
+每个结点的值大于（或小于）等于其每个子结点的值；
+该二叉树是平衡二叉树。
+
+如果根结点包含了最大的元素，则是大顶堆(max heap)；反之，是小顶堆（min heap）。
+堆结构的最大好处是元素查找、插入和删除效率高($O(\log_2 n)$)。
+堆按层的顺序存储在一个一维数组里$heap[SIZE]$。
+如何根据结点需要求父结......
                 </div>
             </a>
             
@@ -1098,7 +1106,7 @@ S='a_1a_2...a_n'(n \geq 0)前缀：字符串的前缀指除了最后一个字符
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -1108,22 +1116,6 @@ S='a_1a_2...a_n'(n \geq 0)前缀：字符串的前缀指除了最后一个字符
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>
