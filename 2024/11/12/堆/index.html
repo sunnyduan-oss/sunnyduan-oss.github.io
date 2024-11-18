@@ -127,7 +127,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">602</span> and
+                                Words <span class="post-count">665</span> and
                                 Reading Time <span class="post-count">2</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -278,7 +278,8 @@
 <p>如果根结点包含了最大的元素，则是大顶堆(max heap)；反之，是小顶堆（min heap）。</p>
 <p>堆结构的最大好处是元素查找、插入和删除效率高($O(\log_2 n)$)。</p>
 <p>堆<strong>按层的顺序</strong>存储在一个一维数组里$heap[SIZE]$。</p>
-<p>如何根据结点需要求父结点序号？序号为$i(i&gt;0)$的元素父结点序号是$i-1 \over 2$。</p>
+<p>如何根据结点序号求父结点序号？序号为$i(i&gt;0)$的结点父结点序号是$i-1 \over 2$。</p>
+<p>如何根据结点序号求子结点序号？序号为$i$（不是叶结点）的元素子结点序号是$2i+1$和$2i+2$。</p>
 <h2 id="堆的基本操作"><a href="#堆的基本操作" class="headerlink" title="堆的基本操作"></a>堆的基本操作</h2><h3 id="堆的插入"><a href="#堆的插入" class="headerlink" title="堆的插入"></a>堆的插入</h3><p>以大顶堆为例：先将待新结点$e$放在堆的末尾，如果$e$不是根结点，并且比父结点的值大，就和父结点交换。</p>
 <h3 id="堆的删除"><a href="#堆的删除" class="headerlink" title="堆的删除"></a>堆的删除</h3><p>删除指删除堆顶元素。</p>
 <p>以大顶堆为例：将最后一个叶结点中的元素放到要删除的元素位置（指堆顶），删除最后一个叶结点，将根元素$p$在不是叶结点的条件下，如果小于子结点，就和子结点的值交换，直到满足堆的条件。</p>
@@ -291,7 +292,7 @@
 <li>重复上述过程的第2至第3步n−1次。</li>
 </ol>
 <p>堆排序的时间复杂度是$O(n\log_2 n)$，空间复杂度是$O(1)$（）无需额外辅助空间，堆排序是不稳定的。</p>
-<!-- ## 二顶堆 -->
+<h2 id="二顶堆"><a href="#二顶堆" class="headerlink" title="二顶堆"></a>二顶堆</h2><h2 id="斐波那契堆"><a href="#斐波那契堆" class="headerlink" title="斐波那契堆"></a>斐波那契堆</h2><p><em>两个堆还没细看，等二轮复习的时候来填坑。</em></p>
 
 
         <hr />
@@ -359,7 +360,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#堆-Heap"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">堆(Heap)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#堆的基本操作"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">堆的基本操作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的插入"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">堆的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的删除"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">堆的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的构造"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">堆的构造</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#堆的应用"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">堆的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#优先队列-Priority-Queue"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">优先队列(Priority Queue)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆排序"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">堆排序</span></a></li></ol></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#堆-Heap"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">堆(Heap)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#堆的基本操作"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">堆的基本操作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的插入"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">堆的插入</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的删除"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">堆的删除</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆的构造"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">堆的构造</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#堆的应用"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">堆的应用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#优先队列-Priority-Queue"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">优先队列(Priority Queue)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#堆排序"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">堆排序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#二顶堆"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">二顶堆</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#斐波那契堆"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">斐波那契堆</span></a></li></ol></li></ol>
             
           
           </div>
