@@ -26,12 +26,12 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
   <title>
-     图和图算法 - Sunny 
+     Deep Laerning-NLP-RNN/LSTM &amp; Word Embeddings - Sunny 
   </title>
 
   <link
     rel="canonical"
-    href="https://dusign.net/2024/11/09/图和图算法/"
+    href="https://dusign.net/2024/11/18/Deep-Laerning-NLP-RNN-LSTM-Word-Embeddings/"
   />
 
   <!-- Bootstrap Core CSS -->
@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
                 /*post*/
             
         
@@ -112,22 +112,18 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#实习和秋招" title="实习和秋招">实习和秋招</a>
-                            
-                              <a class="tag" href="/tags/#计算机基础" title="计算机基础">计算机基础</a>
-                            
                         </div>
-                        <h1>图和图算法</h1>
-                        <h2 class="subheading">图和图的相关算法，整合了数据结构和算法设计与分析两门课的内容。</h2>
+                        <h1>Deep Laerning-NLP-RNN/LSTM &amp; Word Embeddings</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Sunny on
-                            2024-11-09
+                            2024-11-18
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">364</span> and
+                                Words <span class="post-count">0</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -270,27 +266,7 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><p>图$G$由顶点（数据元素）集$V$和边集（顶点之间的关系）$E$组成，即为$G=(V,E)$。若$V={v_1,v_2,…,v_n}$，则用$|V|$表示图中的顶点个数，$E={(u,v)|u \in V,v \in V}$。顶点集$V$必须是非空集合。</p>
-<h2 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h2><ul>
-<li>有向图：$(u,v)$和$(v,u)$被视作同一条边，其中$u \in V, v \in V$。</li>
-<li>无向图：$(u,v)$和$(v,u)$是两条不同的边，其中$u \in V, v \in V$。</li>
-<li>相邻(Adjacent)：边$(u,v)$连接的顶点$u$和$v$相邻。相邻是顶点和顶点间的关系。</li>
-<li>关联(Incident)：边$(u,v)$和其连接的顶点$u$（或$v$）相互关联。</li>
-<li>简单图：不存在重复边和自环的图。</li>
-<li>完全图：任意两个点之间都存在边。<ul>
-<li>无向图的完全图：有$n(n-1)/2$条边的无向图。</li>
-<li>有向图的完全图：有$n(n-1)$条边的有向图。</li>
-</ul>
-</li>
-<li>子图：设两个图$G=(V,E)$和$G’=(V’,E’)$，若$V’$是$V$的子集，$E’$是$E$的子集，则称$G’$是$G$的子图。<strong>若满足$V(G’)=v(G)$，则称$G’$是$G$的生成子图</strong>。</li>
-<li>顶点的度(Degree of a Vertex)：顶点$u$的度$deg(u)$是和$u$关联的边的数量。</li>
-<li>图的度：图各顶点的度之和，即$deg(G)=\sum_{v \in V}deg(v)$。和树的度定义不一样。</li>
-<li>握手定理(Handshaking Lemma)：无向图的度是边数的两倍，即$deg(G)=2|E|$。</li>
-<li>连通：</li>
-<li>连通图：</li>
-<li>连通分量：</li>
-</ul>
-
+        
 
         <hr />
         <!-- Pager -->
@@ -298,20 +274,20 @@
           
           <li class="previous">
             <a
-              href="/2024/11/11/C-基础/"
+              href="/2024/11/18/Deep-Learning-NLP-Transformer/"
               data-toggle="tooltip"
               data-placement="top"
-              title="C++基础"
+              title="Deep Learning-NLP-Transformer"
               >&larr; Previous Post</a
             >
           </li>
            
           <li class="next">
             <a
-              href="/2024/11/09/树/"
+              href="/2024/11/18/Deep-Learning-Neural-Networks/"
               data-toggle="tooltip"
               data-placement="top"
-              title="树的基础"
+              title="Deep Learning-Neural Networks"
               >Next Post &rarr;</a
             >
           </li>
@@ -350,21 +326,6 @@
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
-    
-      
-        <aside id="sidebar">
-          <div id="toc" class="toc-article">
-          <strong class="toc-title">Contents</strong>
-          
-            
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本术语"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">基本术语</span></a></li></ol></li></ol>
-            
-          
-          </div>
-        </aside>
-      
-    
-
 
       <!-- Sidebar Container -->
       <div
@@ -376,20 +337,6 @@
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
-            
-            <a
-              class="tag"
-              href="/tags/#实习和秋招"
-              title="实习和秋招"
-              >实习和秋招</a
-            >
-            
-            <a
-              class="tag"
-              href="/tags/#计算机基础"
-              title="计算机基础"
-              >计算机基础</a
-            >
             
           </div>
         </section>
