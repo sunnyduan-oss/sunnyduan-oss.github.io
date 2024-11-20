@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">364</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">1.4k</span> and
+                                Reading Time <span class="post-count">5</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -189,13 +189,6 @@
 
                         
                         <li>
-                            <a href="/about/">About Sunny</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -210,14 +203,21 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/photography/">Photography</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/photography/">Photography</a>
+                            <a href="/about/">About Sunny</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -286,11 +286,49 @@
 <li>顶点的度(Degree of a Vertex)：顶点$u$的度$deg(u)$是和$u$关联的边的数量。</li>
 <li>图的度：图各顶点的度之和，即$deg(G)=\sum_{v \in V}deg(v)$。和树的度定义不一样。</li>
 <li>握手定理(Handshaking Lemma)：无向图的度是边数的两倍，即$deg(G)=2|E|$。</li>
-<li>连通：</li>
-<li>连通图：</li>
-<li>连通分量：</li>
+<li>路径(Path)：顶点$v<em>p$到顶点$v_p$之间的路径是指<strong>顶点序列</strong>$&lt;v_p,v</em>{i<em>1},v</em>{i<em>2},…,v</em>{i<em>m},v_q&gt;$。存在路径$&lt;v_p,v</em>{i<em>1},v</em>{i<em>2},…,v</em>{i_m},v_q&gt;$，说明$v_p$<strong>可达</strong>$v_q$。</li>
+<li>路径长度：路径上的边的数量。</li>
+<li>回路：第一个顶点和最后一个顶点相同的路径。若一个图有$n$个顶点，且有大于$n-1$条边，则图中一定有环。</li>
+<li>简单路径：顶点不重复出现的路径。</li>
+<li>简单回路：除了第一个顶点和最后一个顶点，其余顶点不重复出现的回路。</li>
+<li>连通、连通图和连通分量：针对<strong>无向图</strong>的概念。<ul>
+<li>若顶点$v$到顶点$u$有路径存在，则称$v$和$u$是连通的。</li>
+<li>若图$G$中任意两个顶点都是相通的，则称图$G$是连通图。</li>
+<li>连通分量(Connected Components)：根据是否连通将顶点进行分组，相互可达的<strong>顶点集</strong>和<strong>对应的边集</strong>称为连通分量。</li>
+<li>极小连通子图：子图连通，且包含最少的边。</li>
+<li>极大连通子图：子图连通，且包含最多的边。</li>
+<li>无向图中的极大连通子图称为极大连通分量。</li>
 </ul>
-
+</li>
+<li>强连通、强连通图和强连通分量：针对<strong>有向图</strong>的概念。<ul>
+<li>若一对顶点$v$和$u$，从$v$到$u$和从$u$到$v$之间都有路径，则称这两个顶点是强连通的。</li>
+<li>若图中任意一对顶点都是强连通的，则称此图为强连通图。</li>
+<li>有向图中的极大强连通子图称为图的强连通分量。</li>
+<li>极小强连通子图：子图强连通，包含最少的边。</li>
+<li>极大强连通子图：子图强连通连通，包含最多的边。</li>
+</ul>
+</li>
+<li>生成树：连通图（说明是无向图）的生成树是包含图中全部顶点的一个<strong>极小连通子图</strong>。若图中有$n$个结点，则它的生成树有$n-1$条边。</li>
+<li>生成森林：在非连通图中，连通分量的生成树构成了非连通图的生成森林。</li>
+<li>距离：从顶点$v$到顶点$u$存在的<strong>最短路径</strong>。</li>
+<li>有向树：<em>有向图在什么条件下成为了有向树。</em> 一个顶点的入度为0，其余顶点的入度均为1，称为有向树。</li>
+</ul>
+<h2 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h2><p>逻辑结构——图，在计算机物理内存内如何存储。如何在计算机内存中存储图里数据元素之间的逻辑关系。</p>
+<h3 id="邻接矩阵法"><a href="#邻接矩阵法" class="headerlink" title="邻接矩阵法"></a>邻接矩阵法</h3><p>使用一个一维数组存储图中顶点信息；使用一个二维数组存储图中边的信息（各顶点间的邻接关系），存储边信息的二维数组称为邻接矩阵。</p>
+<p>顶点数为$n$的图$G=<V,E>$的邻接矩阵<strong>A</strong>是$n \times n$的，将顶点集$G$中的顶点编号是$v_1,v_2,…,v_n$，则：</p>
+<script type="math/tex; mode=display">
+A[i][j] = \begin{cases}
+  0, & (v_i,v_j)\ or <v_i,v_j> is\ an\ edge \\
+  1, & (v_j,v_i)\ or <v_j,v_i> is\ an\ edge 
+\end{cases}</script><p>在带权图，如果顶点$v_i$和$v_i$之间没有边，则$A[i][j]=A[j][i]=\infty$，如果有边，那么$A[i][j]$或者$A[j][i]$的值是边的权值。</p>
+<p>邻接矩阵法存储空间复杂度：$O(n^2)$，其中$n=|V|$。</p>
+<p>缺点：当图是稀疏图时，邻接矩阵法会浪费大量存储空间。</p>
+<h3 id="邻接表法"><a href="#邻接表法" class="headerlink" title="邻接表法"></a>邻接表法</h3><p>邻接表法结合了顺序存储和链式存储方法。</p>
+<p>边表：对图$G$中的每个顶点$v_i$建立一个单链表，第$i$个单链表中的结点表示从顶点$v_i$出发的边（对于无向图是和$v_i$关联的边）。边表结点包含两个域，邻接点域（存储和顶点$v_i$邻接的顶点编号），和指向下一条边的边表结点的指针。</p>
+<p>顶点表：指向边表的指针和顶点的数据信息采用顺序存储，称为顶点表。顶点表的顶点结点包含两个域，指向边表的指针域，和保存顶点$v_i$信息的顶点域。</p>
+<p>有向图邻接表法的空间复杂度是$O(|V|+|E|)$，无向图邻接表法的空间复杂度是$O(|V|+2|E|)$。</p>
+<h3 id="邻接矩阵法和邻接表法的优缺点对比"><a href="#邻接矩阵法和邻接表法的优缺点对比" class="headerlink" title="邻接矩阵法和邻接表法的优缺点对比"></a>邻接矩阵法和邻接表法的优缺点对比</h3><h3 id="十字链表"><a href="#十字链表" class="headerlink" title="十字链表"></a>十字链表</h3><p>十字链表是有向图的一种链式存储结构。</p>
+<h3 id="邻接多重表"><a href="#邻接多重表" class="headerlink" title="邻接多重表"></a>邻接多重表</h3>
 
         <hr />
         <!-- Pager -->
@@ -357,7 +395,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本术语"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">基本术语</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#基本术语"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">基本术语</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#图的存储"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">图的存储</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#邻接矩阵法"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">邻接矩阵法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#邻接表法"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">邻接表法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#邻接矩阵法和邻接表法的优缺点对比"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">邻接矩阵法和邻接表法的优缺点对比</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#十字链表"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">十字链表</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#邻接多重表"><span class="toc-nav-number">1.2.5.</span> <span class="toc-nav-text">邻接多重表</span></a></li></ol></li></ol></li></ol>
             
           
           </div>

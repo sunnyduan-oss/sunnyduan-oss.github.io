@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">230</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">900</span> and
+                                Reading Time <span class="post-count">3</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -189,13 +189,6 @@
 
                         
                         <li>
-                            <a href="/about/">About Sunny</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -210,14 +203,21 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/photography/">Photography</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/photography/">Photography</a>
+                            <a href="/about/">About Sunny</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -270,11 +270,23 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h1 id="数据结构和算法预备知识"><a href="#数据结构和算法预备知识" class="headerlink" title="数据结构和算法预备知识"></a>数据结构和算法预备知识</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>我们该如何理解数据结构？从哪几个角度串起来数据结构的所有知识。我的理解是，数据结构可以从三个层面理解，分别是——逻辑结构、存储结构和针对数据的操作。</p>
+        <h1 id="数据结构和算法预备知识"><a href="#数据结构和算法预备知识" class="headerlink" title="数据结构和算法预备知识"></a>数据结构和算法预备知识</h1><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>我们该如何理解数据结构？从哪几个角度串起来数据结构的所有知识。首先数据结构是数据元素+数据元素之间的关系。数据结构可以从三个层面理解，分别是——<strong>逻辑结构</strong>、<strong>存储结构</strong>和<strong>针对数据的操作</strong>。</p>
+<h3 id="数据的逻辑结构"><a href="#数据的逻辑结构" class="headerlink" title="数据的逻辑结构"></a>数据的逻辑结构</h3><p>逻辑结构，我理解为数据元素之间的逻辑关系，</p>
+<h3 id="数据的存储结构"><a href="#数据的存储结构" class="headerlink" title="数据的存储结构"></a>数据的存储结构</h3><p>存储结构是指数据结构在计算机中的表示，即数据结构如何在计算机内容中存储。<br><strong>直白一点可以理解为如何在计算机物理内存中定位目标数据元素。存储结构是数据元素的逻辑结构在实际的计算机物理内存中的实现。</strong><br>存储结构主要有：</p>
+<ol>
+<li>顺序存储：顺序存储是在计算机内存中<strong>分配一块连续的存储单元</strong>存储数据结构。逻辑上相邻的数据元素在物理上也相邻。优点是可以实现随机存取，缺点是只能使用相邻的一整块内存单元，容易产生外部碎片。</li>
+<li>链式存储：逻辑上相邻的数据元素在物理上不一定相邻，即在计算机内存中不是连续出现的，采用<strong>指针</strong>表示元素中的逻辑关系。优点是不会产生外部碎片，缺点是指针占内存。</li>
+<li>索引存储：在存储信息的同时，还建立索引表。</li>
+<li>散列存储：根据元素的关键字直接计算出该元素的存储地址，称为哈希(Hash)存储。优点是检索、增加和删除的操作都很快，缺点是哈希函数不好，可能出现元素存<br>储的冲突，消耗时间和空间的开销。</li>
+</ol>
+<p>链式存储、索引存储和散列存储的区别是，实现数据元素关系的方式不同（在计算机内存中定位目标元素的方式不同），链式存储通过指针相连，索引存储通过索引表定位目标元素，散列函数通过数据元素的关键字定位元素的物理位置。</p>
 <p>其实我们在后续学习可以发现，一种逻辑结构可以对应多种存储结构。所以后续学习思路是逻辑结构是大的topics，对应的多种存储结构式分支。</p>
 <p>查找和排序是对数据的操作是大的topics，对应的各种算法使用不同的逻辑结构和存储结构实现。</p>
 <p><strong>Q：在树的章节里，实现同一种操作有递归和非递归两种算法，为什么非递归会优于递归呢？</strong></p>
-<h2 id="算法设计与分析"><a href="#算法设计与分析" class="headerlink" title="算法设计与分析"></a>算法设计与分析</h2><p>算法的定义：算法是</p>
+<h2 id="算法设计与分析"><a href="#算法设计与分析" class="headerlink" title="算法设计与分析"></a>算法设计与分析</h2><h3 id="算法的定义"><a href="#算法的定义" class="headerlink" title="算法的定义"></a>算法的定义</h3><p>计算问题：给定<strong>数据输入</strong>，计算满足某种性质<strong>输出</strong>的问题。</p>
+<p>算法的定义：给定计算问题，算法是一系列良定义（定义明确无歧义）的计算步骤（计算机可实现的指令），逐一执行计算步骤即可得预期的输出。</p>
+<h3 id="算法的五个重要特性"><a href="#算法的五个重要特性" class="headerlink" title="算法的五个重要特性"></a>算法的五个重要特性</h3><p>有穷性（算法必须在有限个计算步骤后终止）、确定性（算法无歧义）、可行性、输入和输出</p>
+<h3 id="“好”的算法考虑的目标"><a href="#“好”的算法考虑的目标" class="headerlink" title="“好”的算法考虑的目标"></a>“好”的算法考虑的目标</h3><p>正确性，可读性，高效率和低存储量的需求，鲁棒性（对非法的输入数据做出反应和处理，不会产生莫名其妙的输出）</p>
 
 
         <hr />
@@ -342,7 +354,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数据结构和算法预备知识"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">数据结构和算法预备知识</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数据结构"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">数据结构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#算法设计与分析"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">算法设计与分析</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#数据结构和算法预备知识"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">数据结构和算法预备知识</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#数据结构"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">数据结构</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数据的逻辑结构"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">数据的逻辑结构</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#数据的存储结构"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">数据的存储结构</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#算法设计与分析"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">算法设计与分析</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#算法的定义"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">算法的定义</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#算法的五个重要特性"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">算法的五个重要特性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#“好”的算法考虑的目标"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">“好”的算法考虑的目标</span></a></li></ol></li></ol></li></ol>
             
           
           </div>
