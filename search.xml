@@ -4,6 +4,40 @@
   
     
     <entry>
+      <title>Constrained Nonlinear Optimization</title>
+      <link href="/2024/11/21/Constrained-Nonlinear-Optimization/"/>
+      <url>/2024/11/21/Constrained-Nonlinear-Optimization/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图的遍历</title>
+      <link href="/2024/11/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+      <url>/2024/11/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><p>图的遍历指的是从某一顶点出发，按照某种搜索方法访问图中的所有顶点，有且仅访问一次。</p><h2 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h2><h2 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h2><h2 id="两种搜索方法的应用"><a href="#两种搜索方法的应用" class="headerlink" title="两种搜索方法的应用"></a>两种搜索方法的应用</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 实习和秋招 </tag>
+            
+            <tag> 计算机基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Deep Learning-Unet</title>
       <link href="/2024/11/18/Deep-Learning-Unet/"/>
       <url>/2024/11/18/Deep-Learning-Unet/</url>
