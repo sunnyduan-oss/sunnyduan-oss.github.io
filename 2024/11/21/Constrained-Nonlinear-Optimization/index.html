@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
                 /*post*/
             
         
@@ -112,9 +112,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#人工智能基础" title="人工智能基础">人工智能基础</a>
+                            
+                              <a class="tag" href="/tags/#HKU ARIN7011" title="HKU ARIN7011">HKU ARIN7011</a>
+                            
                         </div>
                         <h1>Constrained Nonlinear Optimization</h1>
-                        <h2 class="subheading"></h2>
+                        <h2 class="subheading">This article is derived from the Optimization for AI course of the HKU AI Program.</h2>
                         <span class="meta">
                             Posted by Sunny on
                             2024-11-21
@@ -123,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">0</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">1.4k</span> and
+                                Reading Time <span class="post-count">6</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -266,11 +270,110 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        
+        <h1 id="Constrained-Nonlinear-Optimization"><a href="#Constrained-Nonlinear-Optimization" class="headerlink" title="Constrained Nonlinear Optimization"></a>Constrained Nonlinear Optimization</h1><p>该文章思路是解决有限制条件的优化问题的方法。</p>
+<p>这部分是非线性优化（针对任意函数$f(x)$）的有附加限制条件的优化。</p>
+<p>有限制条件的非线性优化问题的形式：</p>
+<script type="math/tex; mode=display">
+\min_x f(x) \\
+s.t \ g_i(x) \leq 0,\ i=1,...,m \\
+h_i(x)=0, \ i=1,...,p</script><p>其中，$f(x)$是目标函数；$m$个不等式限制方程$g_i$；$p$个等式限制方程$h_i$。</p>
+<p>对于限制优化问题，也有$Lagrangian$方程：</p>
+<script type="math/tex; mode=display">
+L(x,\lambda,\mu)=f(x)+\sum_{i=1}^m \lambda_i g_i(x)+\sum_{i=1}^p \mu_i h_i(x)</script><p>对于每个限制方程，都有一个对应的对偶变量($dual\ variable$)：$\lambda_i$是$g_i(x)$的对偶变量，$\mu_i$是$h_i(x)$的对偶变量。</p>
+<p>如何将$Lagrangian$方程$L(x,\lambda,\mu)$和原始优化方程$f(x)$联系起来呢？</p>
+<script type="math/tex; mode=display">
+\max_{\lambda \geq 0,\mu} L(x,\lambda,\mu)=\begin{cases}
+  f(x), & if\ x\ is\ feasible \\
+  \infty, & otherwise
+\end{cases}</script><p>所以，<script type="math/tex">\min_{x \in \Omega}f(x)=\min_{x}\max_{\lambda \geq 0,\mu} L(x,\lambda,\mu)</script></p>
+<p>在一些假设下，可以交换最大化和最小化顺序：</p>
+<script type="math/tex; mode=display">
+\min_{x}\max_{\lambda \geq 0,\mu} L(x,\lambda,\mu)=\max_{\lambda \geq 0,\mu}\min_{x} L(x,\lambda,\mu)</script><h2 id="KKT-Karush-Kuhn-Tucker-Conditions"><a href="#KKT-Karush-Kuhn-Tucker-Conditions" class="headerlink" title="KKT(Karush-Kuhn-Tucker) Conditions"></a>KKT(Karush-Kuhn-Tucker) Conditions</h2><p>满足KKT Conditions的$x^<em>$的点的意义：在给定的约束条件下，$x^</em>$是目标函数局部最优解的候选点。</p>
+<p>Active Set: </p>
+<h2 id="对偶"><a href="#对偶" class="headerlink" title="对偶"></a>对偶</h2><p>对偶目标函数：</p>
+<script type="math/tex; mode=display">q(\lambda,\mu)=\min_x L(x,\lambda,\mu)</script><p>所以，对偶问题的形式是：</p>
+<script type="math/tex; mode=display">\max_{\lambda \geq 0,\mu} q(\lambda,\mu)</script><p>弱对偶性：对偶的目标函数的值比原始函数的值小，</p>
+<script type="math/tex; mode=display">q(\lambda,\mu) \leq f(x)</script><p>强对偶性：在一些条件下(Slater’s condition)，有，</p>
+<script type="math/tex; mode=display">q(\lambda^*,\mu^*)=f(x^*)</script><h2 id="优化问题-Optimization-Problem-的应用：支持向量机-Support-Vector-Machine"><a href="#优化问题-Optimization-Problem-的应用：支持向量机-Support-Vector-Machine" class="headerlink" title="优化问题(Optimization Problem)的应用：支持向量机(Support Vector Machine)"></a>优化问题(Optimization Problem)的应用：支持向量机(Support Vector Machine)</h2><h3 id="Hard-Margin-SVM"><a href="#Hard-Margin-SVM" class="headerlink" title="Hard-Margin SVM"></a>Hard-Margin SVM</h3><p>SVM: primal optimization problem</p>
+<script type="math/tex; mode=display">
+\max_{x,b} 2/ \|x\| \\
+s.t. \ y^i(x^\mathrm{T}s^i+b) \geq 1.</script><p>将最大化转化成最小化：</p>
+<script type="math/tex; mode=display">
+\min_{x,b} \|x\|^2 /2\\
+s.t. \ 1-y^i(x^\mathrm{T}s^i+b) \leq 0.</script><p>SVM: Dual Optimization Problem</p>
+<h3 id="Soft-Margin-SVM"><a href="#Soft-Margin-SVM" class="headerlink" title="Soft-Margin SVM"></a>Soft-Margin SVM</h3><h2 id="投影梯度法-Projected-Gradient-Mathod"><a href="#投影梯度法-Projected-Gradient-Mathod" class="headerlink" title="投影梯度法(Projected Gradient Mathod)"></a>投影梯度法(Projected Gradient Mathod)</h2><p>gradient descent + projection</p>
+<p>什么是投影projection? 对于一个给定的点$x$，投影操作通常是找到一个点$x’$，使得$x’$在可行域内，并且距离$x$最近。所以，投影是<strong>满足限制条件的点</strong>中<strong>距离最近</strong>的。</p>
+<p>投影梯度法有两个步骤：</p>
+<ul>
+<li>执行无限制的梯度下降步骤：$x^{k+ {1\over 2}}=x^k-\eta_k\nabla f(x^k)$</li>
+<li>计算在可行域$\Omega$上的投影：$x^{k+1}\in arg \min_{x\in \Omega}|x-x^{k+{1\over 2}}|$</li>
+</ul>
+<p>PGD法只在投影操作cheap的时候有效。</p>
+<h2 id="SVM问题的解决方法：PGD"><a href="#SVM问题的解决方法：PGD" class="headerlink" title="SVM问题的解决方法：PGD"></a>SVM问题的解决方法：PGD</h2><h2 id="交替方向乘数法-ADMM-alternating-direction-method-of-multipliers"><a href="#交替方向乘数法-ADMM-alternating-direction-method-of-multipliers" class="headerlink" title="交替方向乘数法(ADMM, alternating direction method of multipliers)"></a>交替方向乘数法(ADMM, alternating direction method of multipliers)</h2><h3 id="对偶问题-Dual-Problem"><a href="#对偶问题-Dual-Problem" class="headerlink" title="对偶问题(Dual Problem)"></a>对偶问题(Dual Problem)</h3><p>原始问题：</p>
+<script type="math/tex; mode=display">
+\min_{x\in R^n} f(x)\ s.t.\ Ax=b</script><p>$Lagrangin$方程：</p>
+<script type="math/tex; mode=display">
+L(x,\lambda)=f(x)+\lambda^\mathrm{T}(Ax-b)</script><script type="math/tex; mode=display">
+q(\lambda)=\min_{x\in R^n}\ L(x,\lambda)</script><p>对偶方程：</p>
+<script type="math/tex; mode=display">
+\max_{\lambda}\ q(\lambda)</script><p>得到对偶问题的解$\lambda^*$：</p>
+<script type="math/tex; mode=display">
+\lambda^*=arg\max_\lambda\ q(\lambda)</script><p>最终可以求得原始问题的解$x^*$：</p>
+<script type="math/tex; mode=display">
+x^*=arg\min_{x\in R^n}\ L(x,\lambda^*)</script><p>如何求解$\lambda^*$？使用梯度上升的方法。</p>
+<h3 id="对偶上升-Dual-Ascent-：如何基于-lambda-k-求-lambda-k-1"><a href="#对偶上升-Dual-Ascent-：如何基于-lambda-k-求-lambda-k-1" class="headerlink" title="对偶上升(Dual Ascent)：如何基于$\lambda^k$求$\lambda^{k+1}$"></a>对偶上升(Dual Ascent)：如何基于$\lambda^k$求$\lambda^{k+1}$</h3><p>如何计算$\nabla q(\lambda^k)$？</p>
+<p>已知$q(\lambda)=\min_{x\in R^n} L(x,\lambda)$，假设$\tilde{x}=arg\min_x L(x,\lambda)$，所以$q(\lambda)$可以改写为：</p>
+<script type="math/tex; mode=display">
+q(\lambda)=L(\tilde{x},\lambda)=f(\tilde{x})+\lambda^\mathrm{T}(A\tilde{x}-b).</script><p>方程的梯度（$q(\lambda)$对$\lambda$求导）是：</p>
+<script type="math/tex; mode=display">
+\nabla q(\lambda)=A\tilde{x}-b</script><p>所以，对偶上升法的步骤是：</p>
+<h3 id="对偶分解-Dual-Decomposition"><a href="#对偶分解-Dual-Decomposition" class="headerlink" title="对偶分解(Dual Decomposition)"></a>对偶分解(Dual Decomposition)</h3><p>假设方程$f(x_1,x_2,…,x_N)$是separable的，说明$f(x)$可以被分解成多个方程的乘积或和：</p>
+<script type="math/tex; mode=display">
+f(x_1,x_2,...,x_N)=g_1(x_1)\times g_2(x_2) \times ... \times g_N(x_N)</script><script type="math/tex; mode=display">
+f(x_1,x_2,...,x_N)=g_1(x_1)+g_2(x_2)+...+g_N(x_N)</script><p>对偶分解指可以通过分解$Lagrangin$方程到各个维度<strong>分解对偶问题</strong>（假设变量$x$是$N$维向量），分解的原理如下：</p>
+<script type="math/tex; mode=display">
+f(x)=g_1(x_{(1)})+g_2(x_{(2)})+...+g_N(x_{(N)}),\ where\ x=(x_{(1)},x_{(2)},...,x_{(N)})^\mathrm{T}</script><p>所以，我们可以得到：</p>
+<script type="math/tex; mode=display">
+\lambda^\mathrm{T}Ax=\lambda^\mathrm{T}(A_1,...,A_N)\begin{pmatrix}
+x_{(1)} \\
+... \\
+x_{(N)}
+\end{pmatrix}=\lambda^\mathrm{T}A_ix_{(i)}</script><p>$Lagrangin$方程是separable的，我们可以得到：</p>
+<script type="math/tex; mode=display">
+L(x,\lambda)=L_1(x_{(1)},\lambda)+...+L_N(x_{(N)},\lambda),\ L_i(x_{(i)},\lambda)=g_i(x_{(i)})+\lambda^\mathrm{T}(A_ix_{(i)}-b_{(i)})</script><p>可以将$x=(x_1,x_2,…,x_N)$的最小化分解为$N$个分离的最小化问题，其中第$i$维变量在第$k+1$轮次的最小化问题是：</p>
+<script type="math/tex; mode=display">
+(x^{k+1})_i=arg\min_{x_{(i)}}\ L_i(x_{(i)},\lambda^k)</script><p>其中，$\lambda^k$是第$k$轮求得的对偶问题的结果。</p>
+<h3 id="乘数方法-Methods-of-Multipliers"><a href="#乘数方法-Methods-of-Multipliers" class="headerlink" title="乘数方法(Methods of Multipliers)"></a>乘数方法(Methods of Multipliers)</h3><p>对$Lagangin$方程<strong>新增一项$(\rho / 2)| Ax-b |^2$</strong>，可以得到$Augmented\ Lagrangin$：</p>
+<script type="math/tex; mode=display">
+L_\rho(x,\lambda)=f(x)+\lambda^\mathrm{T}(Ax-b)+(\rho / 2)\| Ax-b \|^2</script><p>所以，原始优化问题是：</p>
+<script type="math/tex; mode=display">
+\min_x f(x)+(\rho / 2)\| Ax-b \|^2\ s.t.\ Ax-b=0</script><h4 id="乘数方法步骤"><a href="#乘数方法步骤" class="headerlink" title="乘数方法步骤"></a>乘数方法步骤</h4><ul>
+<li>第一步是$x$的最小化操作。</li>
+<li>第二步是对偶变量上升操作，在对偶上升中将$\eta<em>k=\rho$，以及$\nabla L</em>\rho(x,\lambda)=Ax^{k+1}-b$。</li>
+</ul>
+<p>$for\ k=0,1,…,K-1\ do \<br>\qquad Set\ x^{k+1}=arg\min<em>x L</em>{\rho}(x,\lambda^k) \<br>\qquad Set\ \lambda^{k+1}=\lambda^k+\rho(Ax^{k+1}-b)<br>$</p>
+<h3 id="交替方向乘数方法-ADMM-Alternating-Direction-Method-of-Multipliers"><a href="#交替方向乘数方法-ADMM-Alternating-Direction-Method-of-Multipliers" class="headerlink" title="交替方向乘数方法(ADMM,Alternating Direction Method of Multipliers)"></a>交替方向乘数方法(ADMM,Alternating Direction Method of Multipliers)</h3><p>该方法用于处理两个变量$x$和$z$的优化问题。</p>
+<p>主要(Primal)优化问题：</p>
+<script type="math/tex; mode=display">
+\min_{x,z} f(x)+g(z)\ s.t.\ Ax+Bz=c</script><p>The augmented Lagrangin is:</p>
+<script type="math/tex; mode=display">
+L_\rho(x,z,\lambda)=f(x)+g(z)+\lambda^\mathrm{T}(Ax+Bz-c)+(\rho / 2)\| Ax+Bz-b \|^2 \\
+\nabla L_\rho(\lambda)=Ax+Bz-c</script><h4 id="ADMM"><a href="#ADMM" class="headerlink" title="ADMM"></a>ADMM</h4><h4 id="ADMM方法的最优解的条件"><a href="#ADMM方法的最优解的条件" class="headerlink" title="ADMM方法的最优解的条件"></a>ADMM方法的最优解的条件</h4><h4 id="缩放对偶变量的ADMM方法"><a href="#缩放对偶变量的ADMM方法" class="headerlink" title="缩放对偶变量的ADMM方法"></a>缩放对偶变量的ADMM方法</h4><p>将$u^k=\rho^{-1}\lambda^k$操作称为缩放对偶变量。</p>
+
 
         <hr />
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a
+              href="/2024/11/22/Stochastic-Methods-in-Machine-Learning-Outline/"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="Stochastic Methods in Machine Learning: Outline"
+              >&larr; Previous Post</a
+            >
+          </li>
            
           <li class="next">
             <a
@@ -316,6 +419,21 @@
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Constrained-Nonlinear-Optimization"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Constrained Nonlinear Optimization</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#KKT-Karush-Kuhn-Tucker-Conditions"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">KKT(Karush-Kuhn-Tucker) Conditions</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#对偶"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">对偶</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#优化问题-Optimization-Problem-的应用：支持向量机-Support-Vector-Machine"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">优化问题(Optimization Problem)的应用：支持向量机(Support Vector Machine)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hard-Margin-SVM"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">Hard-Margin SVM</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Soft-Margin-SVM"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">Soft-Margin SVM</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#投影梯度法-Projected-Gradient-Mathod"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">投影梯度法(Projected Gradient Mathod)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SVM问题的解决方法：PGD"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">SVM问题的解决方法：PGD</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#交替方向乘数法-ADMM-alternating-direction-method-of-multipliers"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">交替方向乘数法(ADMM, alternating direction method of multipliers)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#对偶问题-Dual-Problem"><span class="toc-nav-number">1.6.1.</span> <span class="toc-nav-text">对偶问题(Dual Problem)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#对偶上升-Dual-Ascent-：如何基于-lambda-k-求-lambda-k-1"><span class="toc-nav-number">1.6.2.</span> <span class="toc-nav-text">对偶上升(Dual Ascent)：如何基于$\lambda^k$求$\lambda^{k+1}$</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#对偶分解-Dual-Decomposition"><span class="toc-nav-number">1.6.3.</span> <span class="toc-nav-text">对偶分解(Dual Decomposition)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#乘数方法-Methods-of-Multipliers"><span class="toc-nav-number">1.6.4.</span> <span class="toc-nav-text">乘数方法(Methods of Multipliers)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#乘数方法步骤"><span class="toc-nav-number">1.6.4.1.</span> <span class="toc-nav-text">乘数方法步骤</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#交替方向乘数方法-ADMM-Alternating-Direction-Method-of-Multipliers"><span class="toc-nav-number">1.6.5.</span> <span class="toc-nav-text">交替方向乘数方法(ADMM,Alternating Direction Method of Multipliers)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ADMM"><span class="toc-nav-number">1.6.5.1.</span> <span class="toc-nav-text">ADMM</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ADMM方法的最优解的条件"><span class="toc-nav-number">1.6.5.2.</span> <span class="toc-nav-text">ADMM方法的最优解的条件</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#缩放对偶变量的ADMM方法"><span class="toc-nav-number">1.6.5.3.</span> <span class="toc-nav-text">缩放对偶变量的ADMM方法</span></a></li></ol></li></ol></li></ol></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
 
       <!-- Sidebar Container -->
       <div
@@ -327,6 +445,20 @@
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
+            
+            <a
+              class="tag"
+              href="/tags/#人工智能基础"
+              title="人工智能基础"
+              >人工智能基础</a
+            >
+            
+            <a
+              class="tag"
+              href="/tags/#HKU ARIN7011"
+              title="HKU ARIN7011"
+              >HKU ARIN7011</a
+            >
             
           </div>
         </section>

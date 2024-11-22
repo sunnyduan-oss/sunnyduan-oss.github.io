@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dusign.net/2024/11/22/Stochastic-Methods-in-Machine-Learning-Outline/</loc>
+    <lastmod>2024-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://dusign.net/2024/11/18/Deep-Learning-Outline/</loc>
+    <lastmod>2024-11-22</lastmod>
+  </url>
+  <url>
     <loc>https://dusign.net/2024/11/21/Constrained-Nonlinear-Optimization/</loc>
-    <lastmod>2024-11-21</lastmod>
+    <lastmod>2024-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://dusign.net/2024/11/07/Markdown-Latex-%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2024-11-22</lastmod>
   </url>
   <url>
     <loc>https://dusign.net/2024/11/20/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86/</loc>
@@ -17,20 +29,12 @@
     <lastmod>2024-11-20</lastmod>
   </url>
   <url>
-    <loc>https://dusign.net/2024/11/07/Markdown-Latex-%E4%BD%BF%E7%94%A8%E8%AF%A6%E8%A7%A3/</loc>
-    <lastmod>2024-11-20</lastmod>
-  </url>
-  <url>
     <loc>https://dusign.net/2024/11/09/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2024-11-19</lastmod>
   </url>
   <url>
     <loc>https://dusign.net/2024/11/09/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90/</loc>
     <lastmod>2024-11-19</lastmod>
-  </url>
-  <url>
-    <loc>https://dusign.net/2024/11/18/Deep-Learning-Outline/</loc>
-    <lastmod>2024-11-18</lastmod>
   </url>
   <url>
     <loc>https://dusign.net/2024/11/18/Deep-Learning-Unet/</loc>
