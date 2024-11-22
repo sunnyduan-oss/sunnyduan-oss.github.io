@@ -127,7 +127,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">63</span> and
+                                Words <span class="post-count">518</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -271,7 +271,16 @@
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
         <h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><p>图的遍历指的是从某一顶点出发，按照某种搜索方法访问图中的所有顶点，有且仅访问一次。</p>
-<h2 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h2><h2 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h2><h2 id="两种搜索方法的应用"><a href="#两种搜索方法的应用" class="headerlink" title="两种搜索方法的应用"></a>两种搜索方法的应用</h2>
+<h2 id="广度优先搜索-BFS-Breadth-First-Search"><a href="#广度优先搜索-BFS-Breadth-First-Search" class="headerlink" title="广度优先搜索(BFS, Breadth-First-Search)"></a>广度优先搜索(BFS, Breadth-First-Search)</h2><p>类似于二叉树的按层遍历的算法。基本思想：以$v$为起始点，由近至远依次访问和$v$有路径相通且路径长度为$1,2,…$的顶点。使用<strong>队列</strong>实现广度优先搜索算法。</p>
+<p>BFS算法的空间复杂度最坏情况是$O(|V|)$，因为辅助队列最坏情况保存所有顶点。采用邻接表存储时，算法时间复杂度是$O(|V|+|E|)$。</p>
+<p>广度优先搜索方向的应用有求解<strong>最短路径</strong>问题。</p>
+<h3 id="广度优先树"><a href="#广度优先树" class="headerlink" title="广度优先树"></a>广度优先树</h3><p>在广度遍历的过程中，得到的树，称为广度优先生成树。</p>
+<h2 id="深度优先搜索-Depth-First-Search-DFS"><a href="#深度优先搜索-Depth-First-Search-DFS" class="headerlink" title="深度优先搜索(Depth-First-Search, DFS)"></a>深度优先搜索(Depth-First-Search, DFS)</h2><p>类似于二叉树的先序遍历，尽量<strong>深</strong>地搜索一个图。基本思想：以$v$为起始点，访问与$v$邻接且未被访问的任意一个顶点$w_1$，再访问与$w_1$邻接且未被访问的任意一个顶点$w_2$…重复以上过程。当不能继续向下访问的时候，依次<strong>退到最近被访问的顶点</strong>，若它还有未被访问的邻接顶点，则从该点继续上述搜索过程，直到整张图均被访问过为止。</p>
+<h3 id="DFS算法复杂度分析"><a href="#DFS算法复杂度分析" class="headerlink" title="DFS算法复杂度分析"></a>DFS算法复杂度分析</h3><p>需要访问$|V|$个顶点，访问<strong>每个顶点的时间复杂度是$T_v=O(1+deg(v))$</strong>，其中$1$指的是访问顶点操作的时间复杂度，$deg(v)$指的是访问相邻结点的时间复杂度。</p>
+<script type="math/tex; mode=display">
+T=\sum_{v\in V} T \leq \sum_{v\in V} O(1+deg(v))</script><script type="math/tex; mode=display">
+= \sum_{v\in V}O(1)+\sum_{v\in V}O(deg(v))=O(|V|)+O(|E|)=O(|V|+|E|)</script><h3 id="深度优先树"><a href="#深度优先树" class="headerlink" title="深度优先树"></a>深度优先树</h3><h2 id="图的遍历算法的应用"><a href="#图的遍历算法的应用" class="headerlink" title="图的遍历算法的应用"></a>图的遍历算法的应用</h2><p>图的遍历算法可以用来<strong>判断图的连通性</strong>。如果图是连通的，则一次访问即可访问图中的所有顶点。</p>
+
 
         <hr />
         <!-- Pager -->
@@ -338,7 +347,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图的遍历"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图的遍历</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#广度优先搜索"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">广度优先搜索</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#深度优先搜索"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">深度优先搜索</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#两种搜索方法的应用"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">两种搜索方法的应用</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图的遍历"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图的遍历</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#广度优先搜索-BFS-Breadth-First-Search"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">广度优先搜索(BFS, Breadth-First-Search)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#广度优先树"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">广度优先树</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#深度优先搜索-Depth-First-Search-DFS"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">深度优先搜索(Depth-First-Search, DFS)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DFS算法复杂度分析"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">DFS算法复杂度分析</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#深度优先树"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">深度优先树</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#图的遍历算法的应用"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">图的遍历算法的应用</span></a></li></ol></li></ol>
             
           
           </div>
