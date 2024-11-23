@@ -26,7 +26,7 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
   <title>
-     图的应用 - Sunny 
+     图的应用1 - Sunny 
   </title>
 
   <link
@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
                 /*post*/
             
         
@@ -112,9 +112,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#实习和秋招" title="实习和秋招">实习和秋招</a>
+                            
+                              <a class="tag" href="/tags/#计算机基础" title="计算机基础">计算机基础</a>
+                            
                         </div>
-                        <h1>图的应用</h1>
-                        <h2 class="subheading"></h2>
+                        <h1>图的应用1</h1>
+                        <h2 class="subheading">深度优先搜索的应用，整合了数据结构和算法设计与分析两门课的内容。</h2>
                         <span class="meta">
                             Posted by Sunny on
                             2024-11-22
@@ -123,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">0</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">1.1k</span> and
+                                Reading Time <span class="post-count">4</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -266,11 +270,66 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        
+        <h1 id="图的应用1"><a href="#图的应用1" class="headerlink" title="图的应用1"></a>图的应用1</h1><p>对于两种搜索方法，广度优先搜索和深度优先搜索，广度优先搜索的应用主要是最短路径；深度优先搜索应用就比较广泛：</p>
+<ul>
+<li>图的环路存在性判定(Circuit Judgement)</li>
+<li>拓扑排序(Topological Sort)</li>
+<li>强连通分量(Strong Connected Components)</li>
+</ul>
+<h2 id="图的环路存在性判定"><a href="#图的环路存在性判定" class="headerlink" title="图的环路存在性判定"></a>图的环路存在性判定</h2><p>图可以分为有向图和无向图。</p>
+<h3 id="有向图的环路存在性判定"><a href="#有向图的环路存在性判定" class="headerlink" title="有向图的环路存在性判定"></a>有向图的环路存在性判定</h3><p>如何判定出现环路：在深度优先搜索中出现了后向边（从后代指向祖先的边）。</p>
+<p>输入：有向图$G=<V,E>$，$V$是顶点集合，$E$是边集。</p>
+<p>输出：图中是否存在环路。</p>
+<h4 id="DFS-Judge-Circuit-G"><a href="#DFS-Judge-Circuit-G" class="headerlink" title="$DFS_Judge_Circuit(G)$"></a>$DFS_Judge_Circuit(G)$</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">for</span> v ∈ V <span class="keyword">do</span></span><br><span class="line">    color[v] = White</span><br><span class="line">    prev[v] = <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">for</span> v ∈ V <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> color[v] == White then</span><br><span class="line">        <span class="keyword">if</span> DFS_Visit_Judge_Circuit(G,v) then</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line"><span class="keyword">return</span> False</span><br></pre></td></tr></table></figure>
+<h4 id="递归函数-DFS-Visit-Judge-Circuit-G-v"><a href="#递归函数-DFS-Visit-Judge-Circuit-G-v" class="headerlink" title="递归函数$DFS_Visit_Judge_Circuit(G,v)$"></a>递归函数$DFS_Visit_Judge_Circuit(G,v)$</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">color[v] = Gray <span class="comment">//开始访问顶点v，尚未访问完</span></span><br><span class="line"><span class="keyword">for</span> u ∈ G.Adj(v) <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> color[u] == Gray then </span><br><span class="line">        <span class="comment">//正在访问顶点u，如果是黑色顶点，代表不在一条路上，是前顶点分叉的顶点</span></span><br><span class="line">        <span class="keyword">return</span> True</span><br><span class="line">    <span class="keyword">if</span> color[u] == White then</span><br><span class="line">        pred[u] = v</span><br><span class="line">        <span class="keyword">if</span> DFS_Visit_Judge_Circuit(G,u) then</span><br><span class="line">            <span class="keyword">return</span> True</span><br><span class="line">color[v] = Black</span><br><span class="line"><span class="keyword">return</span> False</span><br></pre></td></tr></table></figure>
+<p>在邻接表存储的图中的算法时间复杂度是$O(|V|+|E|)$。</p>
+<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><p>什么是拓扑？在图论中，拓扑可以指图的某种排列或结构，特别是有向图(Directed Graph)中的顶点关系。</p>
+<p>有向无环图(Directed Acyclic Graph, DAG)：表示事件发生的先后顺序。<br>拓扑排序是针对有向无环图（DAG, Directed Acyclic Graph）的一种排序方式。<strong>它将图中的所有节点排列成一个线性序列</strong>，使得对于每一条有向边$v\rightarrow u$，顶点$v$在序列中出现在顶点$u$之前。这种排序方式在许多应用中非常有用，比如任务调度、课程安排等。</p>
+<p>有向图的顶点分为入度和出度。若顶点入度为0，则说明该顶点所对应事件无制约，可直接完成。</p>
+<p>算法步骤：</p>
+<ol>
+<li>完成入度为0的顶点的事件，并加入拓扑序列。</li>
+<li>删除该顶点，产生新的入度为0的顶点，继续完成，直到图中没有其他点存在。</li>
+</ol>
+<p>辅助数组：</p>
+<ol>
+<li>当前保存入度为0的顶点的<strong>队列</strong>。</li>
+<li>拓扑序列。</li>
+</ol>
+<h3 id="拓扑排序算法"><a href="#拓扑排序算法" class="headerlink" title="拓扑排序算法"></a>拓扑排序算法</h3><p>输入：有向图$G=<V,E>$。</p>
+<p>输出：图顶点$V$的拓扑排序的序列$S$，对任意有向边$v\rightarrow u$，拓扑序列中$v$在$u$之前。</p>
+<h4 id="Topological-Sort-BFS-G"><a href="#Topological-Sort-BFS-G" class="headerlink" title="$Topological_Sort_BFS(G)$"></a>$Topological_Sort_BFS(G)$</h4><p>拓扑排序算法可以使用广度优先搜索思想。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化入度为0的顶点队列</span></span><br><span class="line"><span class="keyword">for</span> v ∈ V <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> v.in_degree == <span class="number">0</span> then</span><br><span class="line">        Q.Enqueue(v) <span class="comment">//将顶点v加入队列</span></span><br><span class="line"><span class="keyword">while</span> !Q.not_empty() <span class="keyword">do</span></span><br><span class="line">    u = Q.Dequeue() <span class="comment">//取队首元素</span></span><br><span class="line">    topo_list.add(u) <span class="comment">//将顶点添加到拓扑序列中</span></span><br><span class="line">    <span class="keyword">for</span> v ∈ G.Adj(u) <span class="keyword">do</span></span><br><span class="line">        v.in_degree = v.in_degree - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> v.in_degree == <span class="number">0</span>:</span><br><span class="line">            Q.Enqueue(v)</span><br><span class="line"><span class="keyword">return</span> topo_list</span><br></pre></td></tr></table></figure></p>
+<h4 id="Topological-Sort-DFS-G"><a href="#Topological-Sort-DFS-G" class="headerlink" title="$Topological_Sort_DFS(G)$"></a>$Topological_Sort_DFS(G)$</h4><p>拓扑排序算法可以使用深度优先搜索思想，通过顶点的<strong>完成时间序列</strong>$finish[|V|]$实现。顶点$v$的完成操作在$DFS_Visit(G,v)$递归函数的$return$操作前。</p>
+<ul>
+<li>$DFS(G)$<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> v ∈ V <span class="keyword">do</span></span><br><span class="line">    color[v] = White</span><br><span class="line"><span class="keyword">for</span> v ∈ V <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> color[v] == White then</span><br><span class="line">        topo_list = topo_list + DFS_Visit(G,v)</span><br><span class="line"><span class="keyword">return</span> topo_list.reverse()</span><br></pre></td></tr></table></figure></li>
+<li>$DFS_Visit(G,v)$<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">color[v] = Gray <span class="comment">//顶点被找到，但是还没完成</span></span><br><span class="line"><span class="keyword">for</span> u ∈ G.Adj(v) <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> color[u] == White then</span><br><span class="line">        L = L + DFS_Visit(G,u)</span><br><span class="line">color[v] = Black <span class="comment">//该顶点已经完成</span></span><br><span class="line">L = L + [v]</span><br><span class="line"><span class="keyword">return</span> L</span><br></pre></td></tr></table></figure>
+<h2 id="强连通分量"><a href="#强连通分量" class="headerlink" title="强连通分量"></a>强连通分量</h2>可以将图划分为几个强连通分量。<br>强连通分量中的任意两个顶点都相互可达，并且加入新的顶点后，不保证相互可达。</li>
+</ul>
+<p>输入：有向图$G=<V,E>$。</p>
+<p>输出：图的所有强连通分量$C_1,C_2,…,C_n$。</p>
+<p>算法步骤：</p>
+<ol>
+<li>将图中的所有边都反向，得到反向图$G^{Reverse}$。</li>
+<li>在$G^{Reverse}$上执行深度优先搜索算法(DFS)，得到顶点完成时刻序列$L$。</li>
+<li>在$G$上按$L$逆序执行DFS，得到强连通分量。</li>
+</ol>
+<h3 id="Strongly-Connected-Component-G"><a href="#Strongly-Connected-Component-G" class="headerlink" title="$Strongly_Connected_Component(G)$"></a>$Strongly_Connected_Component(G)$</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">G_Reverse = G.reverse() <span class="comment">//将图中的所有边反向，得到反向图G_Reverse</span></span><br><span class="line">L_Reverse = DFS(G_Reverse) <span class="comment">//获取反向图的完成时间序列</span></span><br><span class="line"><span class="keyword">for</span> v ∈ V <span class="keyword">do</span></span><br><span class="line">    color[v] = White</span><br><span class="line"><span class="keyword">for</span> (i = L_Reverse.length()<span class="number">-1</span>;i &gt;= <span class="number">0</span>; i--) <span class="keyword">do</span></span><br><span class="line">    v = L_Reverse[i]</span><br><span class="line">    <span class="keyword">if</span> color[v] == White then</span><br><span class="line">        current_scc = DFS_Visit(G,v) <span class="comment">//获得当前的强连通分量</span></span><br><span class="line">        set_scc.add(current_scc) <span class="comment">//将该强连通分量加入到结果集合中</span></span><br><span class="line"><span class="keyword">return</span> R</span><br></pre></td></tr></table></figure>
+<h3 id="DFS-Finish-List-G-v"><a href="#DFS-Finish-List-G-v" class="headerlink" title="$DFS_Finish_List(G.v)$"></a>$DFS_Finish_List(G.v)$</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">color[v] = Gray</span><br><span class="line"><span class="keyword">for</span> u ∈ G.Adj(v) <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> color[u] == White then</span><br><span class="line">        L = L + DFS_Visit(u)</span><br><span class="line"></span><br><span class="line">color[v] = Black</span><br><span class="line">L = L + [v]</span><br><span class="line"><span class="keyword">return</span> L</span><br></pre></td></tr></table></figure>
+<h3 id="DFS-G-v"><a href="#DFS-G-v" class="headerlink" title="$DFS(G,v)$"></a>$DFS(G,v)$</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">color[v] = Gray</span><br><span class="line"><span class="keyword">for</span> u ∈ G.Adj(v) <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">if</span> color[u] == White then</span><br><span class="line">        L + L + DFS_Visit(u)</span><br><span class="line"></span><br><span class="line">color[v] = Black</span><br><span class="line">L = L + [v]</span><br><span class="line"><span class="keyword">return</span> L</span><br></pre></td></tr></table></figure>
 
         <hr />
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a
+              href="/2024/11/23/图的应用2-最小生成树/"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="图的应用2-最小生成树"
+              >&larr; Previous Post</a
+            >
+          </li>
            
           <li class="next">
             <a
@@ -316,6 +375,21 @@
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图的应用1"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图的应用1</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#图的环路存在性判定"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">图的环路存在性判定</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#有向图的环路存在性判定"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">有向图的环路存在性判定</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#DFS-Judge-Circuit-G"><span class="toc-nav-number">1.1.1.1.</span> <span class="toc-nav-text">$DFS_Judge_Circuit(G)$</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#递归函数-DFS-Visit-Judge-Circuit-G-v"><span class="toc-nav-number">1.1.1.2.</span> <span class="toc-nav-text">递归函数$DFS_Visit_Judge_Circuit(G,v)$</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#拓扑排序"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">拓扑排序</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#拓扑排序算法"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">拓扑排序算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Topological-Sort-BFS-G"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text">$Topological_Sort_BFS(G)$</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Topological-Sort-DFS-G"><span class="toc-nav-number">1.2.1.2.</span> <span class="toc-nav-text">$Topological_Sort_DFS(G)$</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#强连通分量"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">强连通分量</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Strongly-Connected-Component-G"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">$Strongly_Connected_Component(G)$</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DFS-Finish-List-G-v"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">$DFS_Finish_List(G.v)$</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DFS-G-v"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">$DFS(G,v)$</span></a></li></ol></li></ol></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
 
       <!-- Sidebar Container -->
       <div
@@ -327,6 +401,20 @@
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
+            
+            <a
+              class="tag"
+              href="/tags/#实习和秋招"
+              title="实习和秋招"
+              >实习和秋招</a
+            >
+            
+            <a
+              class="tag"
+              href="/tags/#计算机基础"
+              title="计算机基础"
+              >计算机基础</a
+            >
             
           </div>
         </section>
