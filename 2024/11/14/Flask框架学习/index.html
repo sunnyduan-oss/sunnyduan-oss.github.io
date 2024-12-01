@@ -125,7 +125,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">105</span> and
+                                Words <span class="post-count">258</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -277,6 +277,12 @@
 <li>200：</li>
 </ul>
 <h2 id="Vue框架"><a href="#Vue框架" class="headerlink" title="Vue框架"></a>Vue框架</h2><h3 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h3><h2 id="如何添加缓存"><a href="#如何添加缓存" class="headerlink" title="如何添加缓存"></a>如何添加缓存</h2><p>使用session保存在后端文件全局变量中。</p>
+<p>设计，每一个注册的用户在back都有一个文件夹，文件夹名字是用户名。用户可以分析多个excel表格，但是后台只能同一时刻保存一个excel表。每一个user对应一个backendInstance。当要分析新的excel时，需要先停止当前的backendInstance，重新开一个backendInstance。</p>
+<p>在注册时需要创建相关文件夹user。</p>
+<h2 id="SQL简单用法"><a href="#SQL简单用法" class="headerlink" title="SQL简单用法"></a>SQL简单用法</h2><p>use 数据库名;</p>
+<p>CREATE TABLE userBackendInfo (<br>    username VARCHAR(255) PRIMARY KEY,<br>    current_answer TEXT,<br>    current_question TEXT,<br>    image_list TEXT,<br>    csv_df TEXT,<br>    upload_flag TEXT<br>);</p>
+<p>INSERT INTO userProcessingInfo (username, current_answer, current_question, image_list, csv_df, upload_flag)<br>VALUES (‘username’, NULL, NULL, NULL, NULL, FALSE);</p>
+<h1 id="如何保存当前"><a href="#如何保存当前" class="headerlink" title="如何保存当前"></a>如何保存当前</h1><p>JWT（JSON Web Token）</p>
 
 
         <hr />
@@ -344,7 +350,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Vue-Flask前后端分离开发"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Vue+Flask前后端分离开发</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Flask框架连接MySQL数据库"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Flask框架连接MySQL数据库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Flask框架常用函数"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Flask框架常用函数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HTTP协议状态码"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HTTP协议状态码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Vue框架"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Vue框架</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置路由"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">配置路由</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何添加缓存"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">如何添加缓存</span></a></li></ol></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Vue-Flask前后端分离开发"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Vue+Flask前后端分离开发</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Flask框架连接MySQL数据库"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Flask框架连接MySQL数据库</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Flask框架常用函数"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Flask框架常用函数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#HTTP协议状态码"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">HTTP协议状态码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Vue框架"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">Vue框架</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#配置路由"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">配置路由</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何添加缓存"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">如何添加缓存</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#SQL简单用法"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">SQL简单用法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#如何保存当前"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何保存当前</span></a></li></ol>
             
           
           </div>
@@ -641,7 +647,7 @@
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -651,22 +657,6 @@
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>

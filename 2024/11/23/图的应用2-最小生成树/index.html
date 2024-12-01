@@ -94,7 +94,7 @@
     header.intro-header{
         
             
-                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('')
+                background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('article-bg.jpg')
                 /*post*/
             
         
@@ -112,9 +112,13 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#实习和秋招" title="实习和秋招">实习和秋招</a>
+                            
+                              <a class="tag" href="/tags/#计算机基础" title="计算机基础">计算机基础</a>
+                            
                         </div>
                         <h1>图的应用2-最小生成树</h1>
-                        <h2 class="subheading"></h2>
+                        <h2 class="subheading">最小生成树（Prim和Kruskal算法），整合了数据结构和算法设计与分析两门课的内容。</h2>
                         <span class="meta">
                             Posted by Sunny on
                             2024-11-23
@@ -123,7 +127,7 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">0</span> and
+                                Words <span class="post-count">185</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -266,7 +270,13 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        
+        <h1 id="图的应用2-最小生成树-Minimum-Spanning-Tree-Problem"><a href="#图的应用2-最小生成树-Minimum-Spanning-Tree-Problem" class="headerlink" title="图的应用2-最小生成树(Minimum Spanning Tree Problem)"></a>图的应用2-最小生成树(Minimum Spanning Tree Problem)</h1><p>生成树是无向图的概念。<br>连通图（说明是无向图）的生成树是包含图中全部顶点的一个<strong>极小连通子图</strong>。若图中有$n$个结点，则它的生成树有$n-1$条边，多一条边会成环。</p>
+<p>极小连通子图的“极小”指的是包含最少数量的边。</p>
+<p>最小生成树的“最小”指的是生成树的<strong>权重之和最小</strong>。</p>
+<p>最小生成树(Minimum Spanning Tree)是连通图（无向图）中权值最小的生成树。</p>
+<p>输入：连通无向图$G=<V,E,W>$, 其中$w(v,u)\in W$表示边$(v,u)$的权重。</p>
+<p>输出：图$G$的最小生成树$T=<V_T,E_T>$。</p>
+<h2 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h2><h2 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h2>
 
         <hr />
         <!-- Pager -->
@@ -326,6 +336,21 @@
       <!-- Tabe of Content -->
       <!-- Table of Contents -->
 
+    
+      
+        <aside id="sidebar">
+          <div id="toc" class="toc-article">
+          <strong class="toc-title">Contents</strong>
+          
+            
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#图的应用2-最小生成树-Minimum-Spanning-Tree-Problem"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">图的应用2-最小生成树(Minimum Spanning Tree Problem)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Prim算法"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Prim算法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Kruskal算法"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Kruskal算法</span></a></li></ol></li></ol>
+            
+          
+          </div>
+        </aside>
+      
+    
+
 
       <!-- Sidebar Container -->
       <div
@@ -337,6 +362,20 @@
           <!-- no hr -->
           <h5><a href="/tags/">FEATURED TAGS</a></h5>
           <div class="tags">
+            
+            <a
+              class="tag"
+              href="/tags/#实习和秋招"
+              title="实习和秋招"
+              >实习和秋招</a
+            >
+            
+            <a
+              class="tag"
+              href="/tags/#计算机基础"
+              title="计算机基础"
+              >计算机基础</a
+            >
             
           </div>
         </section>
@@ -608,7 +647,7 @@
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -618,22 +657,6 @@
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>

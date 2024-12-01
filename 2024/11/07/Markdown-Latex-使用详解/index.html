@@ -322,7 +322,7 @@ F(n) = \begin{cases}
 <p>$\underline{X}$：使用\underline{}语法，并使用$$括起来。</p>
 <p><del>X</del>：使用一对~~括起来需要加删除线的内容。</p>
 <p>$\tilde{X}$：使用\tilde{X}的语法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$\overline&#123;X&#125;$</span><br><span class="line">$\underline&#123;X&#125;$</span><br><span class="line">~~X~~</span><br><span class="line">$\tilde&#123;X&#125;$</span><br></pre></td></tr></table></figure>
+<p>$\hat{X}$：使用\hat{X}的语法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$\overline&#123;X&#125;$</span><br><span class="line">$\underline&#123;X&#125;$</span><br><span class="line">~~X~~</span><br><span class="line">$\tilde&#123;X&#125;$</span><br><span class="line">$\hat&#123;X&#125;$</span><br></pre></td></tr></table></figure></p>
 <h3 id="判断符号"><a href="#判断符号" class="headerlink" title="判断符号"></a>判断符号</h3><script type="math/tex; mode=display">= \neq \lt \gt \leq \geq \nleq \ngeq \approx \not\approx \equiv \not\equiv</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$&#x3D; \neq \lt \gt \leq \geq \nleq \ngeq \approx \not\approx \equiv \not\equiv$$</span><br></pre></td></tr></table></figure>
 <h3 id="根号"><a href="#根号" class="headerlink" title="根号"></a>根号</h3><p>使用 \sqrt{} 来表示平方根，即$\sqrt{n}$，使用 \sqrt[n]{} 来表示$n$次根，即$\sqrt[n]{n}$。</p>
 <h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><p>$\times$：使用\times表示乘法符号</p>
@@ -340,7 +340,7 @@ F(n) = \begin{cases}
 <h3 id="矩阵符号"><a href="#矩阵符号" class="headerlink" title="矩阵符号"></a>矩阵符号</h3><p>矩阵转置：$\mathbf{X}^\mathrm{T}$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\mathbf&#123;X&#125;^\mathrm&#123;T&#125;$</span><br></pre></td></tr></table></figure></p>
 <h2 id="特殊字母篇"><a href="#特殊字母篇" class="headerlink" title="特殊字母篇"></a>特殊字母篇</h2><h3 id="需要添加转义字符的字符"><a href="#需要添加转义字符的字符" class="headerlink" title="需要添加转义字符的字符"></a>需要添加转义字符的字符</h3><p>在markdown中，有一些特殊的字符，我们需要添加转移字符\，目前遇到的有：$, {}, *.<br>添加转义字符的目的是，不使用字符本身的特殊作用，只显示字符本身。</p>
 <p>字母和数字以一组$的形式隔开。例如，$\Omega$的源码是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$\Omega$</span><br></pre></td></tr></table></figure><br>字母的表示形式还是很容易的，所以我们需要记忆的是各种字母在markdown中怎么写。</p>
-<h3 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h3><p>$ \Omega \ \omega \ \Theta \ \theta \ \eta \rho$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ \Omega \ \omega \ \Theta \ \theta \ \eta \rho $</span><br></pre></td></tr></table></figure></p>
+<h3 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h3><p>$ \Omega \ \omega \ \Theta \ \theta \ \eta\ \rho$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ \Omega \ \omega \ \Theta \ \theta \ \eta \rho $</span><br></pre></td></tr></table></figure></p>
 <h3 id="无穷字符"><a href="#无穷字符" class="headerlink" title="无穷字符"></a>无穷字符</h3><p>$ \infty +\infty -\infty$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ \infty $ 无穷符号</span><br><span class="line">$ +\infty $ 正无穷符号</span><br><span class="line">$ -\infty $ 负无穷符号</span><br></pre></td></tr></table></figure></p>
 <h2 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h2><p>在md文件中插入图片的语法为![]()。</p>
 <p>其中方括号是图片描述，圆括号是图片路径。</p>
@@ -686,7 +686,7 @@ F(n) = \begin{cases}
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -696,22 +696,6 @@ F(n) = \begin{cases}
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>

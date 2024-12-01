@@ -127,8 +127,8 @@
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">18</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">1k</span> and
+                                Reading Time <span class="post-count">4</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -270,7 +270,87 @@
       <div
         class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"
       >
-        <h1 id="Stochastic-Methods-in-Machine-Learning-Outline"><a href="#Stochastic-Methods-in-Machine-Learning-Outline" class="headerlink" title="Stochastic Methods in Machine Learning: Outline"></a>Stochastic Methods in Machine Learning: Outline</h1><p>几个细分topics之间的关系和逻辑。</p>
+        <h1 id="Stochastic-Methods-in-Machine-Learning-Outline"><a href="#Stochastic-Methods-in-Machine-Learning-Outline" class="headerlink" title="Stochastic Methods in Machine Learning: Outline"></a>Stochastic Methods in Machine Learning: Outline</h1><p>几个细分topics之间的关系和逻辑。<br>首先，介绍了待解决问题的背景，机器学习的问题。机器学习中的优化问题是什么？</p>
+<p>优化的方法：</p>
+<ul>
+<li>Coordinate Descent：坐标下降法</li>
+<li>Stochastic Gradient Descent：随机梯度下降法<ul>
+<li>解决Binary Classification问题</li>
+<li>Over-Paramaterization</li>
+<li>Minibatch SGD</li>
+</ul>
+</li>
+<li>SVRM(Stochastic Variance Reduction Method)</li>
+<li>Perceptron方法</li>
+</ul>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>机器学习有三个维度：</p>
+<ul>
+<li>数据：数据之间有输入和输出，输入和输出之间有隐藏关系。</li>
+<li>模型：给定输入，经过模型，有相应预测输出$\hat{y}$。</li>
+<li>优化：找到模型的最优参数。</li>
+</ul>
+<p>Loss function: $l(y,\hat{y})$损失函数测量了真实值$y$和预测值$\hat{y}$之间的距离，是一个非负的值。</p>
+<ul>
+<li>平方损失：$l(y,\hat{y})={1\over 2}(y-\hat{y})^2$，用在回归问题。</li>
+<li>0-1损失：用在分类问题。<script type="math/tex; mode=display">
+l(y,\hat{y})= \begin{cases}
+0, & otherwise \\
+1, & if\ y \neq \hat{y}.
+\end{cases}</script></li>
+</ul>
+<p>机器学习中的优化问题是什么？</p>
+<script type="math/tex; mode=display">
+\min_{x\in \Omega} \{f(x)={1\over m}\sum_{i=1}^m l(y^i,h_x(s^i))+\lambda \cdot r(x)\}</script><ul>
+<li>${1\over m}\sum_{i=1}^m l(y^i,h_x(s^i))$是数据拟合项(data fitting term)。</li>
+<li>$\lambda \cdot r(x)$是正则化项，防止数据过拟合。</li>
+<li>如果数据$x=(x_1,x_2,…,x_n)$是高维度$n$：采用一阶算法，例如梯度下降(gradient descent)。</li>
+<li>如果是<strong>大规模数据$m$</strong>：采用随机算法，例如随机梯度下降(stochastic gradient descent)。</li>
+</ul>
+<h2 id="解决优化问题的算法"><a href="#解决优化问题的算法" class="headerlink" title="解决优化问题的算法"></a>解决优化问题的算法</h2><h3 id="坐标下降-Coordinate-Descent-CD"><a href="#坐标下降-Coordinate-Descent-CD" class="headerlink" title="坐标下降(Coordinate Descent, CD)"></a>坐标下降(Coordinate Descent, CD)</h3><p>坐标下降指沿着一个坐标轴（维度）下降，保持其他坐标轴（维度）数据不变。</p>
+<p>$e^i=(0,…,0,1,0,…,0)^\mathrm{T}$指的是标准基向量，其中第$i$个位置是1，其他位置是0。</p>
+<p>坐标下降公式：在第$k$次迭代中，我们选择$i_k \in {1,2,…,n}$（$x$有$n$个维度，即选择沿着第$i_k$个坐标轴下降）：</p>
+<script type="math/tex; mode=display">
+x^{k+1}=x^k+\eta_ke^{i_k}</script><p>如何计算$\eta_k$呢？可以选择<strong>exact coordinate minimization</strong>，即选择让$f(x^k+\eta e^{i_k})$最小的$\eta$。</p>
+<script type="math/tex; mode=display">\eta_k=arg\min_\eta f(x^k+\eta e^{i_k})</script><h4 id="Exact-Coordinate-Minimization解决Linear-Regression问题"><a href="#Exact-Coordinate-Minimization解决Linear-Regression问题" class="headerlink" title="Exact Coordinate Minimization解决Linear Regression问题"></a>Exact Coordinate Minimization解决Linear Regression问题</h4><p>我们选择$i<em>k \in {1,…,n}$，可得到：<br>&lt;!— $$<br>x</em>{i<em>k}={s</em>{i<em>k}^\mathrm{T}(y-v</em>{i<em>k})}\over {s</em>{i<em>k}^\mathrm{T}s</em>{i<em>k}}},\ v</em>{i<em>k}=\sum</em>{j:j\neq i_k} x_js_j</p>
+<script type="math/tex; mode=display">-->
+
+有三种$i_k$的选择方式？（$i_k$是选择下降的维度）
+* 循环坐标下降
+* 随机坐标下降(Randomized coordinate descent, RCD)
+  * uniform sampling: select $i_k=i$ with probability $1/n$
+  * non-uniform sampling: select $i_k=i$ with probability $p_i$
+* 贪心选择坐标
+
+为什么使用坐标下降法：简单；不需要保存所有数据。
+
+### 随机梯度下降方法(Stochastic Gradient Descent, SGD)
+解决数据量很大的优化问题，优化问题的形式如下：</script><p>arg\min<em>{x\in R^n} {f(x)={1\over m}\sum</em>{i=1}^m f_i(x)}</p>
+<script type="math/tex; mode=display">
+其中，$f_i$是测量第$i$个训练样本$(s^i,y^i)$的误差，例如对于平方差损失$f_i(x)=1/m \sum_{i=1}^m f_i(x)$。
+
+如果$m$很大的时候，需要计算$m$个$\nabla f_i(x)$，所以计算量很大。
+
+#### GD vs SGD
+
+梯度下降Gradient Descent: $$x^{k+1}=x^k-\eta_k \nabla f(x^k)=x^k-{\eta_k \over m}\sum_{i=0}^m \nabla f_i(x^k)</script><p>随机梯度下降，即随机选择一个维度的梯度下降，不需要求出所有维度的梯度：</p>
+<script type="math/tex; mode=display">
+x^{k+1}=x^k-\eta_k \nabla f_{i_k}(x^k)</script><h4 id="SGD-for-Binary-Classification"><a href="#SGD-for-Binary-Classification" class="headerlink" title="SGD for Binary Classification"></a>SGD for Binary Classification</h4><ol>
+<li>SVM：找到一个超平面（或边界），最大化不同类别之间的间隔（margin）。它可以用于线性和非线性分类。</li>
+</ol>
+<p>SVM问题的优化问题，一共有$m$组数据：</p>
+<script type="math/tex; mode=display">
+\min_x {f(x)={1\over m}\sum_{i=0}^m f_i(x)}.</script><p>其中，对于第$i$组训练数据，有</p>
+<script type="math/tex; mode=display">
+f_i(x)={\lambda \over 2}\|x\|^2+\max\{0,1-y^ix^\mathrm{T}s^i\}.</script><p>所以，SVM的优化问题可以改写为：</p>
+<script type="math/tex; mode=display">
+\min_x {\lambda \over 2}\|x\|^2 + {1\over m}\sum_{i=1}^m \max\{0,1-y^ix^\mathrm{T}s^i\}.</script><p>第一步需要计算$\nabla f_i(x)$：</p>
+<ul>
+<li>如果预测正确，即$$</li>
+</ul>
+<ol>
+<li>Logistic Regression：</li>
+</ol>
+<h3 id="神经元法-Perceptron"><a href="#神经元法-Perceptron" class="headerlink" title="神经元法(Perceptron)"></a>神经元法(Perceptron)</h3><p>本质上是神经网络方法，perceptron是神经网络的一个结点。</p>
 
 
         <hr />
@@ -338,7 +418,7 @@
           <strong class="toc-title">Contents</strong>
           
             
-              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Stochastic-Methods-in-Machine-Learning-Outline"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Stochastic Methods in Machine Learning: Outline</span></a></li></ol>
+              <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Stochastic-Methods-in-Machine-Learning-Outline"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Stochastic Methods in Machine Learning: Outline</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#机器学习"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">机器学习</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#解决优化问题的算法"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">解决优化问题的算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#坐标下降-Coordinate-Descent-CD"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">坐标下降(Coordinate Descent, CD)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Exact-Coordinate-Minimization解决Linear-Regression问题"><span class="toc-nav-number">1.2.1.1.</span> <span class="toc-nav-text">Exact Coordinate Minimization解决Linear Regression问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#SGD-for-Binary-Classification"><span class="toc-nav-number">1.2.1.2.</span> <span class="toc-nav-text">SGD for Binary Classification</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#神经元法-Perceptron"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">神经元法(Perceptron)</span></a></li></ol></li></ol></li></ol>
             
           
           </div>
@@ -642,7 +722,7 @@
         
 
         
-            <script type="text/javascript" src="/js/mouse-click.js" content='[&quot;🦄️&quot;,&quot;Tan&quot;,&quot;💕&quot;]' color='[&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot; ,&quot;rgb(255, 192, 203)&quot;]'></script>
+            <script type="text/javascript" src="/js/mouse-click.js" content='[&#34;🦄️&#34;,&#34;Tan&#34;,&#34;💕&#34;]' color='[&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34; ,&#34;rgb(255, 192, 203)&#34;]'></script>
         
 
         <!-- background effects end -->
@@ -652,22 +732,6 @@
     
         <script src="/js/ribbonDynamic.js"></script>
     
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
 </body>
 
 </html>
